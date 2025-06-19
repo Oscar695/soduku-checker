@@ -3,13 +3,20 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [value, setValue] = useState(0)
+// <div className="numbers"> 
+//  <input type="text" value={currentGuess} id="guessImput" onChange={onImputChange} />
+//  <button onClick={() => }>
+//  </button>
+// </div>
+
 
 
   const createRow = (rowIndex) => {
     const boxes = []
     const numberInBox = 8
   for (let i = 0; i < 3; i++) {
-      const box = <div className="numberBox">{numberInBox}</div>
+      const box = <div className="numberBox"><input type="number" className="inputBox" max={9} min={1}></input></div>
       boxes.push(box)
     }
     return boxes
@@ -42,12 +49,11 @@ const sodukuGrid = () => {
   return grid3
 }
 
-
-
-
-
   return (
     <>
+      <div>
+        <input type="number"></input>
+      </div>
       <div>
         {sodukuGrid()}
       </div>

@@ -19,8 +19,8 @@
   color: white;
 }
 
-.imputBox {
-  text-align: center;
+.inputBox {
+ width: 2em;
 }
 
 .A3By3Grid {
