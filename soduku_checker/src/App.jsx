@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
   const [value, setValue] = useState(0)
+  const [arrayOfBoxes, setArrayOfBoxes] = useState([])
 // <div className="numbers"> 
 //  <input type="text" value={currentGuess} id="guessImput" onChange={onImputChange} />
 //  <button onClick={() => }>
@@ -11,12 +12,32 @@ function App() {
 // </div>
 
 
+  const onSubmitGuess = (event) => {
+    event.preventDefault()
+    setArrayOfBoxes([value])
+  }
+  const onImputChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  // useEffect(() => {
+  //   for (let i = 0; i < 81; i++) {
+  //     setArrayOfBoxes(([1] + arrayOfBoxes))
+  //   }
+  // }, [])
+
+  let counter = 0
 
   const createRow = (rowIndex) => {
     const boxes = []
-    const numberInBox = 8
   for (let i = 0; i < 3; i++) {
-      const box = <div className="numberBox"><input type="number" className="inputBox" max={9} min={1}></input></div>
+     counter = counter + 1
+     useEffect(() => {
+      setArrayOfBoxes(([] + arrayOfBoxes))
+    }, [])
+      //  const submit = <button onClick={() => console.log("clicked)")}></button>
+      const input = <input type="number" value={arrayOfBoxes[counter]} onChange={onImputChange} className="inputBox" max={9} min={1}></input>
+      const box = <div className="numberBox"><form onSubmit={onSubmitGuess}>{input}</form></div>
       boxes.push(box)
     }
     return boxes

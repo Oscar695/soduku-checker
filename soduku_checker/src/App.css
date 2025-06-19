@@ -21,6 +21,7 @@
 
 .inputBox {
  width: 2em;
+ display: unset;
 }
 
 .A3By3Grid {
