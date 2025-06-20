@@ -1,0 +1,29 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.imputBox {
+  text-align: center;
+  width: 2em;
+}
+
+.numberBox {  
+  height: 2em;
+  width: 2em;
+  border: 0.05em solid lightgray;
+  color: white;
+}
+
+.boxRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.result-text {
+  text-align: center;
+}
