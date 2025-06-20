@@ -37,7 +37,7 @@ function App() {
     }, [])
       //  const submit = <button onClick={() => console.log("clicked)")}></button>
       const input = <input type="number" value={arrayOfBoxes[counter]} onChange={onImputChange} className="inputBox" max={9} min={1}></input>
-      const box = <div className="numberBox"><form onSubmit={onSubmitGuess}>{input}</form></div>
+      const box = <div className="numberBox"><form onSubmit={onSubmitGuess}>{input}</form>{arrayOfBoxes[counter - 1]}</div>
       boxes.push(box)
     }
     return boxes
