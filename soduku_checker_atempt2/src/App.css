@@ -6,16 +6,19 @@
   text-align: center;
 }
 
-.imputBox {
+.inputBox {
   text-align: center;
   width: 2em;
+  display: unset;
 }
 
 .numberBox {  
   height: 2em;
   width: 2em;
-  border: 0.05em solid lightgray;
   color: white;
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
 }
 
 .boxRow {
@@ -26,4 +29,35 @@
 
 .result-text {
   text-align: center;
+}
+
+.hideInputBox {
+  visibility: hidden;
+  text-align: center;
+  width: 2em;
+  display: unset;
+}
+
+.rowLineThick {
+  height: 0em;
+  border: 0.15em solid darkgray;
+  width: 19.5em;
+}
+
+.collemLineThick {
+  height: 1.7em;
+  border: 0.15em solid darkgray;
+  width: 0em;
+}
+
+.collemLineThin {
+  height: 1.9em;
+  border: 0.05em solid lightgray;
+  width: 0em;
+}
+
+.rowLineThin {
+  height: 0em;
+  border: 0.05em solid lightgray;
+  width: 19.7em;
 }

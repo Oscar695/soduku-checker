@@ -3,25 +3,43 @@ import './App.css'
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState("")
-  const [guesses, setGuesses] = useState([])
+  const [numbers, setNumbers] = useState([])
   const [hasWon, setHasWon] = useState(false)
   const [answer, setAnswer] = useState("")
   const [invalidNumber, setInvalidNumber] = useState(false)
   const [loss, setLoss] = useState(false)
-
+  const [counter, setCounter] = useState(0)
   const createRow = (rowIndex) => {
+    
+    useEffect(() => {
+      if (counter <= 81) setCounter(counter + 1)
+      if (counter <= 81) setNumbers([...numbers, counter])
+      console.log(numbers)
+      console.log(counter)
+    }, [])
+   
     const boxes = []
-
+      
     for (let i = 0; i < 9; i++) {
-      const [value, setValue] = useState()
+      const collemLineThick = <div className="collemLineThick"></div>
+      if (i === 0 || i === 3 || i === 6) boxes.push(collemLineThick)
+      const boxClass = "numberBox"
+      const collemLineThin = <div className="collemLineThin"></div>
+      if (i !== 0 && i !== 3 && i !== 6) boxes.push(collemLineThin)
+        
+        const [value, setValue] = useState()
+        
       const onInputChange = (event) => {
         let value2 = event.target.value
         setValue(value2)
+        setNumbers([...numbers, value2])
+        console.log(numbers)
       }
-      const input = <input type="number" id="guessImput" onChange={onInputChange}/>
-      const boxClass = "numberBox"
-      const box = <div className={boxClass}>{input}{value}</div>
-      boxes.push(box)
+        const inputBoxClass = (value === undefined) ? "inputBox": "hideInputBox"
+        const input = <input type="number" id="guessImput" className={inputBoxClass} onChange={onInputChange}/>
+        const box = <div className={boxClass}>{input}{value}</div>
+        boxes.push(box)
+        if (i === 8) boxes.push(collemLineThick)
     }
     return boxes
   }
@@ -30,8 +48,13 @@ function App() {
     const grid = []
 
     for (let i = 0; i < 9; i++) {
+      const rowLineThick = <div className="rowLineThick"></div>
+      const rowLineThin = <div className="rowLineThin"></div>
+      if (i !== 0 && i !== 3 && i !== 6) grid.push(rowLineThin)
+      if (i === 0 || i === 3 || i === 6) grid.push(rowLineThick)
       const row = <div className="boxRow">{createRow(i)}</div>
       grid.push(row)
+      if (i === 8) grid.push(rowLineThick)
     }
     return grid
   }
