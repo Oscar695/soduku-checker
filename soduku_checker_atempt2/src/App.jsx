@@ -56,7 +56,7 @@ function App() {
             setHello(updatedList3)
           }
           //box checker
-          let boxDuplicants = () => {
+          const boxDuplicants = () => {
             // collemNumber  3
             // rowIndex  5
             // 0         ,1,2,9,10,11,18,19,20
@@ -68,15 +68,19 @@ function App() {
             // 54
             // 57
             // 60
-            let box1 = [[numbers[0]][numbers[1]][numbers[2]][numbers[9]][numbers[10]][numbers[11]][numbers[18]][numbers[19]][numbers[20]]]
+            console.log([[numbers[0]][numbers[1]][numbers[2]][numbers[9]][numbers[10]][numbers[11]][numbers[18]][numbers[19]][numbers[20]]])
+            console.log(box1.includes(inputNumber))
+            console.log("hi")
             if (box1.includes(inputNumber)) return true
+            else return false
           }
-          if (boxDuplicants === true) {
+          if (boxDuplicants(inputNumber) === true) {
             const updatedList2 = [...hello]
             updatedList2[positionInArray] = "errorInputBox"
             const updatedList3 = updatedList2
             updatedList3[no] = "errorInputBox"
             setHello(updatedList3)
+            console.log("working")
           }
 
         // //collom checker
