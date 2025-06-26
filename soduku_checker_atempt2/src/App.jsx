@@ -15,6 +15,15 @@ function App() {
   const [truth, setTruth] = useState(false)
   const [hello, setHello] = useState(new Array(81).fill("inputBox"))
   const [incorectBox, setIncorrectBox] = useState(0)
+  const [box1, setBox1] = useState()
+  const [box2, setBox2] = useState()
+  const [box3, setBox3] = useState()  
+  const [box4, setBox4] = useState()
+  const [box5, setBox5] = useState()
+  const [box6, setBox6] = useState()
+  const [box7, setBox7] = useState()
+  const [box8, setBox8] = useState()
+  const [box9, setBox9] = useState()
 
   const createRow = (rowIndex) => {
 
@@ -70,14 +79,26 @@ function App() {
             // 54
             // 57
             // 60
-            
-            const box1 = [numbers[0], numbers[1], numbers[2], numbers[9], numbers[10], numbers[11], numbers[18], numbers[19], numbers[20]]
-            for (let b = 0; b < 9; b++) {
-              //box1.includes(inputNumber) 
-              let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))))
-              if ((box1[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
-              if ((box1.includes(inputNumber) === true) && b > 7) return true             
+           
+          for (let b = 0; b < 9; b++) {
+              let number1 = ((3*b - 2*(b - (Math.floor(b / 3) * 3))))
+              let hello4 = new Array(1).fill(new Array(1).fill([number1]))
+              setBox1(box1 + hello4)
+              let hello5 = (box1 + hello4)
+              console.log(box1+hello4)
+              let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 1)
+              if ((hello5[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
+              if (hello5.includes(inputNumber) === true) return true             
             }
+            for (let b = 0; b < 9; b++) {
+              let number2 = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3)
+              let box2 = new Array(1).fill(new Array(1).fill([number2]))
+              console.log(box2)
+              let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 1)
+              if ((box2[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
+              if (box2.includes(inputNumber) === true) return true             
+            }
+            
           }
           if (boxDuplicants() === true) {
             const updatedList2 = [...hello]
