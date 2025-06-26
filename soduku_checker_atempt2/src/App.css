@@ -31,11 +31,11 @@
   text-align: center;
 }
 
-.hideInputBox {
-  visibility: hidden;
+.errorInputBox {
   text-align: center;
   width: 2em;
   display: unset;
+  color: red;
 }
 
 .rowLineThick {

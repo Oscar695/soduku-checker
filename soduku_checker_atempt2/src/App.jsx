@@ -40,15 +40,10 @@ function App() {
             setTruth((numbers[(rowIndex * 9) + a] === inputNumber))
             if ((numbers[(rowIndex * 9) + a] === inputNumber) === true) {
             const updatedList2 = [...hello]
-            updatedList2[positionInArray] = "hideInputBox"
+            updatedList2[positionInArray] = "errorInputBox"
              const updatedList3 = updatedList2
-             updatedList3[(rowIndex * 9) + a] = "hideInputBox"
+             updatedList3[(rowIndex * 9) + a] = "errorInputBox"
             setHello(updatedList3)
-            // const updatedList3 = [...hello]
-            // updatedList3[(rowIndex * 9) + a] = "hideInputBox"
-            // setHello(updatedList3)
-            // console.log(hello)
-            console.log("hi")
             }
 
         } 
