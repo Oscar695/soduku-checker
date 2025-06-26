@@ -10,6 +10,7 @@
   text-align: center;
   width: 2em;
   display: unset;
+
 }
 
 .numberBox {  
@@ -45,9 +46,10 @@
 }
 
 .collemLineThick {
-  height: 1.7em;
+  height: 1.9em;
   border: 0.15em solid darkgray;
   width: 0em;
+  margin-bottom: -0.2em;
 }
 
 .collemLineThin {
@@ -60,4 +62,16 @@
   height: 0em;
   border: 0.05em solid lightgray;
   width: 19.7em;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
