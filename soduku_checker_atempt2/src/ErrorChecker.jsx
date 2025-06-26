@@ -1,7 +1,6 @@
-const ErrorChecker = ({numbers, positionInArray, inputNumber, rowIndex, setHello, setTruth, hello, }) => {
+const ErrorChecker = ({numbers, positionInArray, inputNumber, rowIndex, setHello, hello, }) => {
     //row checker
     for (let a = 0; a < 9; a++) {
-        setTruth((numbers[(rowIndex * 9) + a] === inputNumber))
         if ((numbers[(rowIndex * 9) + a] === inputNumber) === true) {
         const updatedList2 = [...hello]
         updatedList2[positionInArray] = "errorInputBox"
@@ -12,10 +11,10 @@ const ErrorChecker = ({numbers, positionInArray, inputNumber, rowIndex, setHello
     } 
     //collom checker
     for (let b = 0; b < 9; b++) {
-        
+
     }
 
-    return 
+    return hello
 }
 
 export default ErrorChecker

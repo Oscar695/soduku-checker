@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import ErrorChecker from './ErrorChecker'
 // import ErrorChecker from './ErrorChecker'
 
 function App() {
@@ -37,25 +38,50 @@ function App() {
         setNumbers(updatedList)
         
         for (let a = 0; a < 9; a++) {
-            setTruth((numbers[(rowIndex * 9) + a] === inputNumber))
-            if ((numbers[(rowIndex * 9) + a] === inputNumber) === true) {
+          //row checker
+          if ((numbers[(rowIndex * 9) + a] === inputNumber) === true) {
             const updatedList2 = [...hello]
             updatedList2[positionInArray] = "errorInputBox"
-             const updatedList3 = updatedList2
-             updatedList3[(rowIndex * 9) + a] = "errorInputBox"
+            const updatedList3 = updatedList2
+            updatedList3[(rowIndex * 9) + a] = "errorInputBox"
             setHello(updatedList3)
-            }
+          }
+          //collom checker
+          const collemNumber = (positionInArray - (rowIndex * 9)) 
+          if ((numbers[collemNumber + (9 * a)] === inputNumber) === true) {
+            const updatedList2 = [...hello]
+            updatedList2[positionInArray] = "errorInputBox"
+            const updatedList3 = updatedList2
+            updatedList3[collemNumber + (9 * a)] = "errorInputBox"
+            setHello(updatedList3)
+          }
+          //box checker
+          if (rowIndex) {
 
-        } 
+          }
 
- 
-        
+        // //collom checker
+        // for (let b = 0; b < 9; b++) {
+        //   const baseNumber = (positionInArray - (rowIndex * 9)) 
+        //   if ((numbers[baseNumber + (9 * b)] === inputNumber) === true) {
+        //     const updatedList2 = [...hello]
+        //     updatedList2[positionInArray] = "errorInputBox"
+        //      const updatedList3 = updatedList2
+        //      updatedList3[baseNumber + (9 * b)] = "errorInputBox"
+        //     setHello(updatedList3)
+        //   }
+        //}
       
-        
-//        const errorChecker = <ErrorChecker numbers={numbers} inputNumber={inputNumber} positionInArray={positionInArray} rowIndex={rowIndex}/>
-//        if (errorChecker === true)  boxClass = "numberBox" + " " + "hideInputBox" 
-//        console.log(typeof errorChecker)
-//        console.log(Object.values(errorChecker))
+        // <ErrorChecker
+        //   numbers={numbers}
+        //   positionInArray={positionInArray}
+        //   inputNumber={inputNumber} 
+        //   rowIndex={rowIndex} 
+        //   setHello={setHello} 
+        //   hello={hello}
+        // 
+        // dont know what to return    
+        }
       }
         const input = <input type="number" autoComplete="off" id="guessImput" className={hello[(rowIndex * 9) + i]} onChange={onInputChange}/>
         const box = <div className={boxClass}>{input}</div>
@@ -64,7 +90,7 @@ function App() {
     }
     return boxes
   }
-//{((rowIndex * 9) + i)}
+
   const createGrid = () => {
     const grid = []
 
