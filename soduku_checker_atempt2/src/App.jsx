@@ -14,6 +14,7 @@ function App() {
   const [listUpdater, setListUpdater] = useState(true)
   const [truth, setTruth] = useState(false)
   const [hello, setHello] = useState(new Array(81).fill("inputBox"))
+  const [incorectBox, setIncorrectBox] = useState(0)
 
   const createRow = (rowIndex) => {
 
@@ -56,6 +57,7 @@ function App() {
             setHello(updatedList3)
           }
           //box checker
+          
           const boxDuplicants = () => {
             // collemNumber  3
             // rowIndex  5
@@ -68,32 +70,24 @@ function App() {
             // 54
             // 57
             // 60
-            console.log([[numbers[0]][numbers[1]][numbers[2]][numbers[9]][numbers[10]][numbers[11]][numbers[18]][numbers[19]][numbers[20]]])
-            console.log(box1.includes(inputNumber))
-            console.log("hi")
-            if (box1.includes(inputNumber)) return true
-            else return false
+            
+            const box1 = [numbers[0], numbers[1], numbers[2], numbers[9], numbers[10], numbers[11], numbers[18], numbers[19], numbers[20]]
+            for (let b = 0; b < 9; b++) {
+              //box1.includes(inputNumber) 
+              let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))))
+              if ((box1[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
+              if ((box1.includes(inputNumber) === true) && b > 7) return true             
+            }
           }
-          if (boxDuplicants(inputNumber) === true) {
+          if (boxDuplicants() === true) {
             const updatedList2 = [...hello]
             updatedList2[positionInArray] = "errorInputBox"
             const updatedList3 = updatedList2
-            updatedList3[no] = "errorInputBox"
+            updatedList3[incorectBox] = "errorInputBox"
+            console.log(incorectBox)
             setHello(updatedList3)
-            console.log("working")
           }
 
-        // //collom checker
-        // for (let b = 0; b < 9; b++) {
-        //   const baseNumber = (positionInArray - (rowIndex * 9)) 
-        //   if ((numbers[baseNumber + (9 * b)] === inputNumber) === true) {
-        //     const updatedList2 = [...hello]
-        //     updatedList2[positionInArray] = "errorInputBox"
-        //      const updatedList3 = updatedList2
-        //      updatedList3[baseNumber + (9 * b)] = "errorInputBox"
-        //     setHello(updatedList3)
-        //   }
-        //}
       
         // <ErrorChecker
         //   numbers={numbers}
