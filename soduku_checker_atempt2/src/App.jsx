@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+// import ErrorChecker from './ErrorChecker'
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState("")
@@ -10,8 +11,8 @@ function App() {
   const [loss, setLoss] = useState(false)
   const [counter, setCounter] = useState(0)
   const [listUpdater, setListUpdater] = useState(true)
-
-  new Array(81).fill([])
+  const [truth, setTruth] = useState(false)
+  const [hello, setHello] = useState(new Array(81).fill("inputBox"))
 
   const createRow = (rowIndex) => {
 
@@ -20,29 +21,55 @@ function App() {
     for (let i = 0; i < 9; i++) {
       const collemLineThick = <div className="collemLineThick"></div>
       if (i === 0 || i === 3 || i === 6) boxes.push(collemLineThick)
-      const boxClass = "numberBox"
+      let boxClass = "numberBox"
       const collemLineThin = <div className="collemLineThin"></div>
       if (i !== 0 && i !== 3 && i !== 6) boxes.push(collemLineThin)
         
       const [value, setValue] = useState()
+      
 
       const onInputChange = (event) => { 
-        let value2 = event.target.value
-        setValue(value2)
-        let value3 = ((rowIndex * 9) + i)
+        let inputNumber = event.target.value
+        setValue(inputNumber)
+        let positionInArray = ((rowIndex * 9) + i)
         const updatedList = [...numbers]
-        updatedList[value3] = value2
+        updatedList[positionInArray] = inputNumber
         setNumbers(updatedList)
-        console.log(updatedList)
-       }
-        const input = <input type="number" autoComplete="off"  id="guessImput" className="inputBox" onChange={onInputChange}/>
+        
+        for (let a = 0; a < 9; a++) {
+            setTruth((numbers[(rowIndex * 9) + a] === inputNumber))
+            if ((numbers[(rowIndex * 9) + a] === inputNumber) === true) {
+            const updatedList2 = [...hello]
+            updatedList2[positionInArray] = "hideInputBox"
+             const updatedList3 = updatedList2
+             updatedList3[(rowIndex * 9) + a] = "hideInputBox"
+            setHello(updatedList3)
+            // const updatedList3 = [...hello]
+            // updatedList3[(rowIndex * 9) + a] = "hideInputBox"
+            // setHello(updatedList3)
+            // console.log(hello)
+            console.log("hi")
+            }
+
+        } 
+
+ 
+        
+      
+        
+//        const errorChecker = <ErrorChecker numbers={numbers} inputNumber={inputNumber} positionInArray={positionInArray} rowIndex={rowIndex}/>
+//        if (errorChecker === true)  boxClass = "numberBox" + " " + "hideInputBox" 
+//        console.log(typeof errorChecker)
+//        console.log(Object.values(errorChecker))
+      }
+        const input = <input type="number" autoComplete="off" id="guessImput" className={hello[(rowIndex * 9) + i]} onChange={onInputChange}/>
         const box = <div className={boxClass}>{input}</div>
         boxes.push(box)
         if (i === 8) boxes.push(collemLineThick)
     }
     return boxes
   }
-
+//{((rowIndex * 9) + i)}
   const createGrid = () => {
     const grid = []
 

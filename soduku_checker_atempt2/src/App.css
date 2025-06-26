@@ -10,8 +10,7 @@
   text-align: center;
   width: 2em;
   display: unset;
-
-}
+} 
 
 .numberBox {  
   height: 2em;
@@ -64,6 +63,11 @@
   width: 19.7em;
 
 }
+
+.incorectValue {
+  color: red;
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
