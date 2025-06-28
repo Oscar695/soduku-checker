@@ -34,30 +34,10 @@ function App() {
       const onInputChange = (event) => { 
         let inputNumber = event.target.value
         let positionInArray = ((rowIndex * 9) + i)
-        // if (inputNumber === "") {
-        //     const updatedList9 = [...hello]
-        //     updatedList9[positionInArray] = "inputBox"
-        //     setHello(updatedList9)
-        // }
         setValue(inputNumber)
         const updatedList = [...numbers]
         updatedList[positionInArray] = inputNumber
         setNumbers(updatedList)
-        
-        //gets locations of box a in array of 81 arrays((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)
-        
-        for (let a = 0; a < 9; a++) {
-          for (let b = 0; b < 9; b++) {
-            console.log((numbers[((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)] === inputNumber))
-            if (numbers[((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)] === inputNumber) {
-              const hello6 = [...arrayOfBoxes]
-              hello6[a][b] = inputNumber
-              setArrayOfBoxes(hello6)
-              console.log(hello6)
-              console.log(arrayOfBoxes)
-              }
-          }
-        }
 
         for (let a = 0; a < 9; a++) {
           //row checker
@@ -77,52 +57,10 @@ function App() {
             updatedList3[collemNumber + (9 * a)] = "errorInputBox"
             setHello(updatedList3)
           }
-          //box checker
-          
-          // const boxDuplicants = () => {
-          //   // collemNumber  3
-          //   // rowIndex  5
-          //   // 0         ,1,2,9,10,11,18,19,20
-          //   // 3         ,4,5,12,13,14,21,22,23
-          //   // 6         ,7,8,15,16,17,24,25,26
-          //   // 27
-          //   // 30
-          //   // 33
-          //   // 54
-          //   // 57
-          //   // 60
-           
-          // for (let b = 0; b < 9; b++) {
-          //     let number1 = ((3*b - 2*(b - (Math.floor(b / 3) * 3))))
-          //     let hello4 = new Array(1).fill(new Array(1).fill([number1]))
-          //     setBox1(box1 + hello4)
-          //     let hello5 = (box1 + hello4)
-          //   //  console.log(box1+hello4)
-          //     let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 1)
-          //     if ((hello5[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
-          //     if (hello5.includes(inputNumber) === true) return true             
-          //   }
-          //   for (let b = 0; b < 9; b++) {
-          //     let number2 = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3)
-          //     let box2 = new Array(1).fill(new Array(1).fill([number2]))
-              
-          //     //console.log(box2)
-          //     let incorectBoxPosition = ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 1)
-          //     if ((box2[b] === inputNumber) && (positionInArray !== incorectBoxPosition)) setIncorrectBox(incorectBoxPosition)
-          //     if (box2.includes(inputNumber) === true) return true             
-          //   }
-            
-          // }
-          // if (boxDuplicants() === true) {
-          //   const updatedList2 = [...hello]
-          //   updatedList2[positionInArray] = "errorInputBox"
-          //   const updatedList3 = updatedList2
-          //   updatedList3[incorectBox] = "errorInputBox"
-          //   //console.log(incorectBox)
-          //   setHello(updatedList3)
-          // }
 
-      
+
+        // ((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)
+       
         // <ErrorChecker
         //   numbers={numbers}
         //   positionInArray={positionInArray}
