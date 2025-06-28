@@ -16,17 +16,6 @@ function App() {
   const [truth, setTruth] = useState(false)
   const [hello, setHello] = useState(new Array(81).fill("inputBox"))
   const [incorectBox, setIncorrectBox] = useState(0)
-  const [AA, setAA] = useState(null)
-  const [BB, setBB] = useState(null)
-  const [box1, setBox1] = useState()
-  const [box2, setBox2] = useState()
-  const [box3, setBox3] = useState()  
-  const [box4, setBox4] = useState()
-  const [box5, setBox5] = useState()
-  const [box6, setBox6] = useState()
-  const [box7, setBox7] = useState()
-  const [box8, setBox8] = useState()
-  const [box9, setBox9] = useState()
 
   const createRow = (rowIndex) => {
 
@@ -44,27 +33,31 @@ function App() {
 
       const onInputChange = (event) => { 
         let inputNumber = event.target.value
-        setValue(inputNumber)
         let positionInArray = ((rowIndex * 9) + i)
+        // if (inputNumber === "") {
+        //     const updatedList9 = [...hello]
+        //     updatedList9[positionInArray] = "inputBox"
+        //     setHello(updatedList9)
+        // }
+        setValue(inputNumber)
         const updatedList = [...numbers]
         updatedList[positionInArray] = inputNumber
         setNumbers(updatedList)
         
         //gets locations of box a in array of 81 arrays((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)
-        const hello6 = [...arrayOfBoxes]
+        
         for (let a = 0; a < 9; a++) {
           for (let b = 0; b < 9; b++) {
-            if (((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a) === inputNumber) (hello6[a][b] = inputNumber) (setArrayOfBoxes(hello6))
+            console.log((numbers[((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)] === inputNumber))
+            if (numbers[((3*b - 2*(b - (Math.floor(b / 3) * 3))) + 3 * a)] === inputNumber) {
+              const hello6 = [...arrayOfBoxes]
+              hello6[a][b] = inputNumber
+              setArrayOfBoxes(hello6)
+              console.log(hello6)
+              console.log(arrayOfBoxes)
+              }
           }
         }
-        console.log(AA)
-        console.log(BB)
-        console.log(hello6)
-        console.log(arrayOfBoxes)
-        console.log(AA)
-        console.log(BB)
-        console.log(hello6)
-        console.log(arrayOfBoxes)
 
         for (let a = 0; a < 9; a++) {
           //row checker
