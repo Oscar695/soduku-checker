@@ -60,9 +60,7 @@ function App() {
      //   setResponce((inputNumber < 1 || inputNumber > 9 || inputNumber !== ""))
     //    if (inputNumber < 1 || inputNumber > 9 || inputNumber !== "") return  
 
-        
-        
-        
+  
         const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
         updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
         const updatedValuesList2 = updatedValuesList1
@@ -98,11 +96,8 @@ function App() {
               const updatedClassList6 = updatedClassList5     
               if (doesCollemContainDuplicates) updatedClassList6[largeBoxNumber][smallBoxNumber] = "errorInputBox"
               setClassOfBox(updatedClassList6)
-
-              // win condition
-              if (((updatedClassList6.includes("errorInputBox")) === false) && (updatedValuesList2[a + b + c + d + e].includes("") === false)) setWin(true)
             }
-          console.log(updatedValuesList2[a + b + c + d + e].includes("") === false)
+
           }
         setArrayOfBoxes(updatedValuesList2)
         
