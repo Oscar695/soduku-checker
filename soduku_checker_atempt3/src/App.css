@@ -12,6 +12,10 @@
   display: unset;
 } 
 
+.lineUp {
+  display: flex;
+}
+
 .numberBox {  
   height: 2em;
   width: 2em;
@@ -38,17 +42,29 @@
   color: red;
 }
 
-.rowLineThick {
+.rowLineThickLong {
   height: 0em;
   border: 0.15em solid darkgray;
   width: 19.5em;
 }
 
-.collemLineThick {
+.rowLineThickShort {
+  height: 0em;
+  border: 0.15em solid darkgray;
+  width: 6.2em;
+}
+
+.collemLineThickShort {
   height: 1.9em;
   border: 0.15em solid darkgray;
   width: 0em;
   margin-bottom: -0.2em;
+}
+
+.collemLineThickLong {
+  height: 6.2em;
+  border: 0.15em solid darkgray;
+  width: 0em;
 }
 
 .collemLineThin {
@@ -60,12 +76,19 @@
 .rowLineThin {
   height: 0em;
   border: 0.05em solid lightgray;
-  width: 19.7em;
+  width: 6.4em;
 
 }
 
 .incorectValue {
   color: red;
+}
+
+.hideInputBox {
+  text-align: center;
+  width: 2em;
+  display: unset;
+  visibility: hidden;
 }
 
 
