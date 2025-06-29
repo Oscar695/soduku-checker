@@ -69,9 +69,7 @@ function App() {
 
         const updatedClassListMinus1 = classOfBox.map(inner => [...inner])
         const updatedClassList0 = updatedClassListMinus1
-        let emptyValue = (inputNumber === "")
-        if (emptyValue) updatedClassList0[largeBoxNumber][smallBoxNumber] = "inputBox"
-
+        
         let doesLargeBoxContainDuplicats = (preventError[largeBoxNumber].includes(inputNumber))
         const updatedClassList1 = updatedClassList0
         if (doesLargeBoxContainDuplicats) updatedClassList1[largeBoxNumber][smallBoxNumber] = "errorInputBox"
