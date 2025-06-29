@@ -6,7 +6,7 @@ function App() {
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
-
+  const [win, setWin] = useState(false)
 
   const createGrid = () => {
     const fullGrid = []
@@ -57,53 +57,55 @@ function App() {
       
       const onInputChange = (event) => {
         const inputNumber = event.target.value
-        setResponce((inputNumber < 1 || inputNumber > 9))
-        if (inputNumber < 1 || inputNumber > 9) return  
-        const updatedValuesList = [...arrayOfBoxes]
-        updatedValuesList[largeBoxNumber][smallBoxNumber] = inputNumber
-        const updatedClassList1 = [...classOfBox]
-        const preventError = [...arrayOfBoxes]
+     //   setResponce((inputNumber < 1 || inputNumber > 9 || inputNumber !== ""))
+    //    if (inputNumber < 1 || inputNumber > 9 || inputNumber !== "") return  
+
+        
+        
+        
+        const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
+        updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
+        const updatedValuesList2 = updatedValuesList1
+        const preventError = arrayOfBoxes.map(inner => [...inner])
         preventError[largeBoxNumber][smallBoxNumber] = 0
+
+        const updatedClassListMinus1 = classOfBox.map(inner => [...inner])
+        const updatedClassList0 = updatedClassListMinus1
+        let emptyValue = (inputNumber === "")
+        if (emptyValue) updatedClassList0[largeBoxNumber][smallBoxNumber] = "inputBox"
+
         let doesLargeBoxContainDuplicats = (preventError[largeBoxNumber].includes(inputNumber))
-        // if (doesLargeBoxContainDuplicats === true) updatedClassList1[largeBoxNumber][smallBoxNumber] = "errorInputBox"
-        // else updatedClassList1[largeBoxNumber][smallBoxNumber] = "inputBox"
-        updatedClassList1[largeBoxNumber][smallBoxNumber] = doesLargeBoxContainDuplicats ? "errorInputBox" : "inputBox"
+        const updatedClassList1 = updatedClassList0
+        if (doesLargeBoxContainDuplicats) updatedClassList1[largeBoxNumber][smallBoxNumber] = "errorInputBox"
         const updatedClassList2 = updatedClassList1
         let otherNumber = 0
-        // if (doesLargeBoxContainDuplicats === true) updatedClassList2[largeBoxNumber][otherNumber] = "errorInputBox"
-        // else updatedClassList2[largeBoxNumber][otherNumber] = "inputBox"
-        updatedClassList2[largeBoxNumber][otherNumber] = doesLargeBoxContainDuplicats ? "errorInputBox" : "inputBox"
+        if (doesLargeBoxContainDuplicats) updatedClassList2[largeBoxNumber][otherNumber] = "errorInputBox"
         const updatedClassList3 = updatedClassList2
-        const updatedClassList7 = []
           for (let e = 0; e < 3; e++) {
-            let largeRowBox = (a + e)
-            let doesRowcontainDuplicates = (preventError[largeRowBox][c] === inputNumber)
-            // if (doesRowcontainDuplicates === true) updatedClassList3[largeRowBox][c] = "errorInputBox"
-            // else updatedClassList3[largeRowBox][c] = "inputBox"
-            updatedClassList3[largeRowBox][c] = doesRowcontainDuplicates ? "errorInputBox" : "inputBox"
-            const updatedClassList4 = updatedClassList3
-            // if (doesRowcontainDuplicates === true) updatedClassList3[largeBoxNumber][smallBoxNumber] = "errorInputBox"
-            // else updatedClassList3[largeBoxNumber][smallBoxNumber] = "inputBox"
-            updatedClassList3[largeBoxNumber][smallBoxNumber] = doesRowcontainDuplicates ? "errorInputBox" : "inputBox"
-            const updatedClassList5 = updatedClassList4
-            
             for (let f = 0; f < 3; f++) {
-              let largeCollemBox = ((Math.floor(largeBoxNumber / 3)) + e)
-              let smallCollemBox = ((Math.floor(smallBoxNumber / 3)) + f)
+              let largeRowBox = ((3 * a) + e)
+              let smallRowBox = ((3 * c) + f)
+              let doesRowcontainDuplicates = (preventError[largeRowBox][smallRowBox] === inputNumber)
+              if (doesRowcontainDuplicates) updatedClassList3[largeRowBox][smallRowBox] = "errorInputBox"
+              const updatedClassList4 = updatedClassList3
+              if (doesRowcontainDuplicates) updatedClassList3[largeBoxNumber][smallBoxNumber] ="errorInputBox"
+              const updatedClassList5 = updatedClassList4
+            
+              let largeCollemBox = (((largeBoxNumber % 3)) + (e * 3))
+              let smallCollemBox = (((smallBoxNumber % 3)) + (f * 3))
               let doesCollemContainDuplicates = (preventError[largeCollemBox][smallCollemBox] === inputNumber)
-              // if (doesCollemContainDuplicates === true) updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
-              // else updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
-              updatedClassList5[largeCollemBox][smallCollemBox] = doesCollemContainDuplicates ? "errorInputBox" : "inputBox"
-              const updatedClassList6 = updatedClassList5
-              // if (doesCollemContainDuplicates === true) updatedClassList5[largeBoxNumber][smallBoxNumber] = "errorInputBox"
-              // else updatedClassList5[largeBoxNumber][smallBoxNumber] = "errorInputBox"      
-              updatedClassList6[largeBoxNumber][smallBoxNumber] = doesCollemContainDuplicates ? "errorInputBox" : "inputBox"
-              updatedClassList7.push(updatedClassList6)
+              if (doesCollemContainDuplicates) updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
+              const updatedClassList6 = updatedClassList5     
+              if (doesCollemContainDuplicates) updatedClassList6[largeBoxNumber][smallBoxNumber] = "errorInputBox"
+              setClassOfBox(updatedClassList6)
+
+              // win condition
+              if (((updatedClassList6.includes("errorInputBox")) === false) && (updatedValuesList2[a + b + c + d + e].includes("") === false)) setWin(true)
             }
+          console.log(updatedValuesList2[a + b + c + d + e].includes("") === false)
           }
-        setClassOfBox(updatedClassList7)
-        setArrayOfBoxes(updatedValuesList)
-        console.log(classOfBox)
+        setArrayOfBoxes(updatedValuesList2)
+        
       }
       
       
@@ -118,6 +120,7 @@ function App() {
     <>
       <div>
         {responce ? "only values 1 to 9" : null}
+        {win ? "you win yay" : null}
       </div>
       <div>
           {createGrid()}
