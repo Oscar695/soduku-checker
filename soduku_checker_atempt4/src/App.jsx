@@ -5,6 +5,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState("")
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
+  const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
 
@@ -52,58 +53,61 @@ function App() {
       let boxClass = "numberBox"
       const collemLineThin = <div className="collemLineThin"></div>
       if (d !== 0) boxes.push(collemLineThin)
-      let largeBoxNumber = ((a * 3) + b)
       let smallBoxNumber = ((c * 3) + d)
-      
-      const onInputChange = (event) => {
-        const inputNumber = event.target.value
-     //   setResponce((inputNumber < 1 || inputNumber > 9 || inputNumber !== ""))
-    //    if (inputNumber < 1 || inputNumber > 9 || inputNumber !== "") return  
+      let largeBoxNumber = ((a * 3) + b)
 
-  
+      const onInputChange = (event) => {
+      const inputNumber = event.target.value
+      const updatedClassListMinus1 = defaultClassOfBox.map(inner => [...inner])
+      for (let i = 0; i < 9; i++) {
+      for (let g = 0; g < 9; g++) {
+        for (let h = 0; h < 9; h++) {
+
         const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
         updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
         const updatedValuesList2 = updatedValuesList1
-        const preventError = arrayOfBoxes.map(inner => [...inner])
-        preventError[largeBoxNumber][smallBoxNumber] = 0
-
-        const updatedClassListMinus1 = classOfBox.map(inner => [...inner])
+        const preventError1 = arrayOfBoxes.map(inner => [...inner])
+        preventError1[g][h] = 0
+        let currentNumber = updatedValuesList1[g][h]
+        if (typeof currentNumber === typeof "") {
         const updatedClassList0 = updatedClassListMinus1
-        let emptyValue = (inputNumber === "")
-        if (emptyValue) updatedClassList0[largeBoxNumber][smallBoxNumber] = "inputBox"
 
-        let doesLargeBoxContainDuplicats = (preventError[largeBoxNumber].includes(inputNumber))
+        let doesLargeBoxContainDuplicats = (preventError1[g].includes(currentNumber))
         const updatedClassList1 = updatedClassList0
-        if (doesLargeBoxContainDuplicats) updatedClassList1[largeBoxNumber][smallBoxNumber] = "errorInputBox"
+        if (doesLargeBoxContainDuplicats) updatedClassList1[g][h] = "errorInputBox"
         const updatedClassList2 = updatedClassList1
-        let otherNumber = 0
-        if (doesLargeBoxContainDuplicats) updatedClassList2[largeBoxNumber][otherNumber] = "errorInputBox"
+        // let otherNumber = 0
+        // if (doesLargeBoxContainDuplicats) updatedClassList2[g][otherNumber] = "errorInputBox"
         const updatedClassList3 = updatedClassList2
           for (let e = 0; e < 3; e++) {
-            for (let f = 0; f < 3; f++) {
-              let largeRowBox = ((3 * a) + e)
-              let smallRowBox = ((3 * c) + f)
-              let doesRowcontainDuplicates = (preventError[largeRowBox][smallRowBox] === inputNumber)
+            for (let f = 0; f < 3; f++) { 
+              let largeRowBox = (((Math.floor(g / 3)) * 3) + e)
+              let smallRowBox = (((Math.floor(h / 3)) * 3) + f)
+              let doesRowcontainDuplicates = (preventError1[largeRowBox][smallRowBox] === currentNumber)
               if (doesRowcontainDuplicates) updatedClassList3[largeRowBox][smallRowBox] = "errorInputBox"
               const updatedClassList4 = updatedClassList3
-              if (doesRowcontainDuplicates) updatedClassList3[largeBoxNumber][smallBoxNumber] ="errorInputBox"
+              if (doesRowcontainDuplicates) updatedClassList3[g][h] = "errorInputBox"
               const updatedClassList5 = updatedClassList4
             
-              let largeCollemBox = (((largeBoxNumber % 3)) + (e * 3))
-              let smallCollemBox = (((smallBoxNumber % 3)) + (f * 3))
-              let doesCollemContainDuplicates = (preventError[largeCollemBox][smallCollemBox] === inputNumber)
+              let largeCollemBox = ((g % 3) + (3 * e))
+              let smallCollemBox = ((h % 3) + (3 * f))
+              let doesCollemContainDuplicates = (preventError1[largeCollemBox][smallCollemBox] === currentNumber)
               if (doesCollemContainDuplicates) updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
               const updatedClassList6 = updatedClassList5     
-              if (doesCollemContainDuplicates) updatedClassList6[largeBoxNumber][smallBoxNumber] = "errorInputBox"
+              if (doesCollemContainDuplicates) updatedClassList6[g][h] = "errorInputBox"
               setClassOfBox(updatedClassList6)
+             // console.log(updatedClassList6)
+ 
             }
 
           }
+        }
         setArrayOfBoxes(updatedValuesList2)
         
       }
-      
-      
+      }
+      }
+    }
       const input = <input type="number" autoComplete="off" id="guessImput" className={classOfBox[largeBoxNumber][smallBoxNumber]} onChange={onInputChange}/>
       const box = <div className={boxClass}>{input}</div>
       boxes.push(box)
