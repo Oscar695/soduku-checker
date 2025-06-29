@@ -1,61 +1,14 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import CreateThreeLongRow from './CreateThreeLongRow'
 
-function App() {
-  const [currentGuess, setCurrentGuess] = useState("")
-  const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
-  const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
-  const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
-  const [responce, setResponce] = useState(false)
-  const [win, setWin] = useState(false)
+  const CreateThreeLongRow = ({
+    a, 
+    b, 
+    c,
+    defaultClassOfBox,
+    arrayOfBoxes,
+    setClassOfBox,
+    setArrayOfBoxes,
+  }) => {
 
-  const createGrid = () => {
-  const fullGrid = []
-    for (let a = 0; a < 3; a++) {
-      // full soduku
-      const rowLineThickLong = <div className="rowLineThickLong"></div>
-      if (a === 0) fullGrid.push(rowLineThickLong)
-      const grid = <div className="lineUp">{createThreeLongSetOfLargeBoxes(a)}</div>
-      fullGrid.push(grid)
-    }
-    return fullGrid
-  }
-  const createThreeLongSetOfLargeBoxes = (a) => {
-    const threeLongSetOfLargeBoxes = []
-    for (let b = 0; b < 3; b++) {
-      // 3 large boxs
-      const collemLineThickLong = <div className="collemLineThickLong"></div>
-      const rowOfLargeBoxes = <div>{createLargeBox(a, b)}</div>
-      threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
-      if (b === 2) threeLongSetOfLargeBoxes.push(collemLineThickLong)
-    }
-    return threeLongSetOfLargeBoxes
-  }
-  const createLargeBox = (a, b) => {
-    const largeBox = []
-    for (let c = 0; c < 3; c++) {
-      // large box
-      const rowLineThin = <div className="rowLineThin"></div>
-      if (c !== 0) largeBox.push(rowLineThin)
-      const row = <div className="lineUp">
-        {/* <createThreeLongRow
-        a={a}
-        b={b}
-        c={c}
-        defaultClassOfBox={defaultClassOfBox}
-        arrayOfBoxes={arrayOfBoxes}
-        setClassOfBox={setClassOfBox}
-        setArrayOfBoxes={setArrayOfBoxes}/> */}
-        {createThreeLongRow(a, b, c)}
-      </div>
-      const rowLineThickShort = <div className="rowLineThickShort"></div>
-      largeBox.push(row)
-      if (c === 2) largeBox.push(rowLineThickShort)
-    }
-    return largeBox
-  }
-  const createThreeLongRow = (a, b, c) => {
     const boxes = []
     for (let d = 0; d < 3; d++) {
       // line of 3 Small boxes
@@ -117,26 +70,5 @@ function App() {
     }
     return boxes
   }
-  return (
-    <>
-      <div>
-        {responce ? "only values 1 to 9" : null}
-        {win ? "you win yay" : null}
-      </div>
-      <div>
-          {createGrid()}
-      </div>
-        {/* <ErrorChecking
-          IDK what to do with this
-          defaultClassOfBox = {defaultClassOfBox}
-          arrayOfBoxes = {arrayOfBoxes}
-          largeBoxNumber = {largeBoxNumber}
-          smallBoxNumber = {smallBoxNumber}
-          setClassOfBox = {setClassOfBox}
-          setArrayOfBoxes = {setArrayOfBoxes}
-        /> */}
-    </>
-  )
-}
-
-export default App
+  console.log("hello")
+  export default CreateThreeLongRow
