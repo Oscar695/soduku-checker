@@ -1,0 +1,104 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.inputBox {
+  text-align: center;
+  width: 2em;
+  display: unset;
+} 
+
+.lineUp {
+  display: flex;
+}
+
+.numberBox {  
+  height: 2em;
+  width: 2em;
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.boxRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.result-text {
+  text-align: center;
+}
+
+.errorInputBox {
+  text-align: center;
+  width: 2em;
+  display: unset;
+  color: red;
+}
+
+.rowLineThickLong {
+  height: 0em;
+  border: 0.15em solid darkgray;
+  width: 19.5em;
+}
+
+.rowLineThickShort {
+  height: 0em;
+  border: 0.15em solid darkgray;
+  width: 6.2em;
+}
+
+.collemLineThickShort {
+  height: 1.9em;
+  border: 0.15em solid darkgray;
+  width: 0em;
+  margin-bottom: -0.2em;
+}
+
+.collemLineThickLong {
+  height: 6.2em;
+  border: 0.15em solid darkgray;
+  width: 0em;
+}
+
+.collemLineThin {
+  height: 1.9em;
+  border: 0.05em solid lightgray;
+  width: 0em;
+}
+
+.rowLineThin {
+  height: 0em;
+  border: 0.05em solid lightgray;
+  width: 6.4em;
+
+}
+
+.incorectValue {
+  color: red;
+}
+
+.hideInputBox {
+  text-align: center;
+  width: 2em;
+  display: unset;
+  visibility: hidden;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
