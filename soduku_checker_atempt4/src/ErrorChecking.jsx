@@ -7,9 +7,9 @@
     setArrayOfBoxes,
   }) => {
 
-
       const onInputChange = (event) => {
         const inputNumber = event.target.value
+        console.log(inputNumber)
         const updatedClassListMinus1 = defaultClassOfBox.map(inner => [...inner])
         for (let g = 0; g < 9; g++) {
           for (let h = 0; h < 9; h++) {
@@ -55,7 +55,8 @@
         }
       }
       return (
-        <div></div>
+        <div>{onInputChange()}</div>
       )
     }
+
 export default ErrorChecking
