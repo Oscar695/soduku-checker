@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import CreateThreeLongRow from './CreateThreeLongRow'
+import CreateThreeLongRow from './ThreeLongRow'
+import ThreeLongSetOfLargeBoxes from './ThreeLongSetOfLargeBoxes'
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState("")
@@ -16,22 +17,22 @@ function App() {
       // full soduku
       const rowLineThickLong = <div className="rowLineThickLong"></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
-      const grid = <div className="lineUp">{createThreeLongSetOfLargeBoxes(a)}</div>
+      const grid = <ThreeLongSetOfLargeBoxes a={a}/>
       fullGrid.push(grid)
     }
     return fullGrid
   }
-  const createThreeLongSetOfLargeBoxes = (a) => {
-    const threeLongSetOfLargeBoxes = []
-    for (let b = 0; b < 3; b++) {
-      // 3 large boxs
-      const collemLineThickLong = <div className="collemLineThickLong"></div>
-      const rowOfLargeBoxes = <div>{createLargeBox(a, b)}</div>
-      threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
-      if (b === 2) threeLongSetOfLargeBoxes.push(collemLineThickLong)
-    }
-    return threeLongSetOfLargeBoxes
-  }
+  // const createThreeLongSetOfLargeBoxes = (a) => {
+  //   const threeLongSetOfLargeBoxes = []
+  //   for (let b = 0; b < 3; b++) {
+  //     // 3 large boxs
+  //     const collemLineThickLong = <div className="collemLineThickLong"></div>
+  //     const rowOfLargeBoxes = <div>{createLargeBox(a, b)}</div>
+  //     threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
+  //     if (b === 2) threeLongSetOfLargeBoxes.push(collemLineThickLong)
+  //   }
+  //   return threeLongSetOfLargeBoxes
+  // }
   const createLargeBox = (a, b) => {
     const largeBox = []
     for (let c = 0; c < 3; c++) {
