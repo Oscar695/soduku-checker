@@ -75,10 +75,9 @@ function App() {
       const onInputChange = (event) => {
         let counter = 0
         const inputNumber = event.target.value
-        console.log(((inputNumber < 1) || (inputNumber > 9)) && (inputNumber !== ""))
-        if (((inputNumber < 1) || (inputNumber > 9)) && (inputNumber !== "")) setResponce(true)
-        else setResponce(false)
-        if ((inputNumber < 1) || (inputNumber > 9)) return
+        // if (((inputNumber < 1) || (inputNumber > 9)) && (inputNumber !== "")) setResponce(true)
+        // else setResponce(false)
+        // if ((inputNumber < 1) || (inputNumber > 9)) return
         const updatedClassListMinus1 = defaultClassOfBox.map(inner => [...inner])
         for (let g = 0; g < 9; g++) {
           for (let h = 0; h < 9; h++) {
@@ -99,26 +98,26 @@ function App() {
               const updatedClassList1 = updatedClassList0
               if (doesLargeBoxContainDuplicats) updatedClassList1[g][h] = "errorInputBox"
               const updatedClassList2 = updatedClassList1
-              const updatedClassList3 = updatedClassList2
+              const updatedClassList3 = updatedClassList1
               for (let e = 0; e < 3; e++) {
                 for (let f = 0; f < 3; f++) { 
                   // row checker
                   let largeRowBox = (((Math.floor(g / 3)) * 3) + e)
                   let smallRowBox = (((Math.floor(h / 3)) * 3) + f)
                   let doesRowcontainDuplicates = (preventError2[largeRowBox][smallRowBox] === currentNumber)
-                  if (doesRowcontainDuplicates) updatedClassList3[largeRowBox][smallRowBox] = "errorInputBox"
-                  const updatedClassList4 = updatedClassList3
-                  if (doesRowcontainDuplicates) updatedClassList3[g][h] = "errorInputBox"
-                  const updatedClassList5 = updatedClassList4
+                  if (doesRowcontainDuplicates) updatedClassList1[largeRowBox][smallRowBox] = "errorInputBox"
+                  const updatedClassList4 = updatedClassList1
+                  if (doesRowcontainDuplicates) updatedClassList1[g][h] = "errorInputBox"
+                  const updatedClassList5 = updatedClassList1
                   // collem checker
                   let largeCollemBox = ((g % 3) + (3 * e))
                   let smallCollemBox = ((h % 3) + (3 * f))
                   let doesCollemContainDuplicates = (preventError2[largeCollemBox][smallCollemBox] === currentNumber)
-                  if (doesCollemContainDuplicates) updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
-                  const updatedClassList6 = updatedClassList5     
-                  if (doesCollemContainDuplicates) updatedClassList6[g][h] = "errorInputBox"
-                  setClassOfBox(updatedClassList6)
-                  if ((updatedClassList6.includes("errorInputBox") === false) && (totalValue === (45 * 9))) setWin(true)
+                  if (doesCollemContainDuplicates) updatedClassList1[largeCollemBox][smallCollemBox] = "errorInputBox"
+                  const updatedClassList6 = updatedClassList1     
+                  if (doesCollemContainDuplicates) updatedClassList1[g][h] = "errorInputBox"
+                  setClassOfBox(updatedClassList1)
+                  if ((updatedClassList1.includes("errorInputBox") === false) && (totalValue === (45 * 9))) setWin(true)
                 }
               }
             }
