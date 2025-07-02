@@ -1,14 +1,3 @@
-/* 
-boxWith = 2em
-collemLineThin = 0.05em
-collemLineThick = 0.15em
-9 boxes = 18em
-6 collem line thin = 0.3em
-4 collemline thick = 0.6em
-
-*/
-
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -16,11 +5,6 @@ collemLineThick = 0.15em
   text-align: center;
 }
 
-.inputBox {
-  text-align: center;
-  width: 2em;
-  display: unset;
-} 
 
 .lineUp {
   display: flex;

@@ -21,6 +21,11 @@
 
 
   }) => {
+    // call in seperate function here
+    // const preventError1 = arrayOfBoxes.map(inner => [...inner])
+    // preventError1[largeBoxNumber][smallBoxNumber] = inputNumber
+    // const preventError2 = preventError1
+    // preventError2[g][h] = 0
     const createThreeLongRow = () => {
       const boxes = []
       for (let d = 0; d < NoOfSmallBoxesLong; d++) {
