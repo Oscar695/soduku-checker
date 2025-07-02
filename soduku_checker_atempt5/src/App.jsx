@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-// import ThreeLongRow from './ThreeLongRow'
+import Box from './Box'
+// import CreateThreeLongRow from './ThreeLongRow'
 // import ThreeLongSetOfLargeBoxes from './ThreeLongSetOfLargeBoxes'
 // import ErrorChecking from './ErrorChecking'
 
@@ -11,16 +12,18 @@ function App() {
   const [NoOfSmallBoxesTall, setNoOfSmallBoxesTall] = useState(3)
   const [NoOfLargeBoxes, setNoOfLargeBoxes] = useState(9)
   const [NoOfSmallBoxes, setNoOfSmallBoxes] = useState(9)
+  const [currentGuess, setCurrentGuess] = useState("")
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
+  const [totalValue, setTotalValue] = useState(0)
+  const [zero, setZero] = useState(0)
   const [valueOfBox, setValueOfBox] = useState(405)
 
   const createGrid = () => {
   const fullGrid = []
-    console.log(typeof NoOfLargeBoxesTall)
     for (let a = 0; a < NoOfLargeBoxesTall; a++) {
       // full soduku
       const rowLineThickLong = <div className="rowLineThickLong"></div>
@@ -109,10 +112,7 @@ function App() {
                   if (doesRowcontainDuplicates) updatedClassList1[g][h] = "errorInputBox"
                   // collem checker
                   let largeCollemBox = ((g % NoOfLargeBoxesLong) + (NoOfLargeBoxesLong * e))
-                  console.log(largeCollemBox)
                   let smallCollemBox = ((h % NoOfSmallBoxesLong) + (NoOfSmallBoxesLong * f))
-                  console.log(smallCollemBox)
-                  console.log(preventError2)
                   let doesCollemContainDuplicates = (preventError2[largeCollemBox][smallCollemBox] === currentNumber)
                   if (doesCollemContainDuplicates) updatedClassList1[largeCollemBox][smallCollemBox] = "errorInputBox"    
                   if (doesCollemContainDuplicates) updatedClassList1[g][h] = "errorInputBox"
@@ -133,37 +133,56 @@ function App() {
       // smallBoxNumber={smallBoxNumber}
       // setClassOfBox={setClassOfBox}
       // setArrayOfBoxes={setArrayOfBoxes}/>}
-      const input = <input type="number" autoComplete="off" id="guessImput" className={classOfBox[largeBoxNumber][smallBoxNumber]} onChange={onInputChange}/>
-      const box = <div className={boxClass}>{input}</div>
+
+      const box = <Box classOfBox={classOfBox} largeBoxNumber={largeBoxNumber} smallBoxNumber={smallBoxNumber} onInputChange={onInputChange} boxClass={boxClass}/>
       boxes.push(box)
     }
     return boxes
   }
-  const updateHightSmallBoxesWidthOfLargeBoxes = (event) => {
-    const input = parseInt(event.target.value)
-    setNoOfLargeBoxesLong(input)
-    setNoOfSmallBoxesTall(input)
-    const numberOfBoxes = input * NoOfLargeBoxesTall
-    setNoOfLargeBoxes(numberOfBoxes)
-    setNoOfSmallBoxes(numberOfBoxes)
+  const hello1 = (event) => {
+    const hello1value = event.target.value
+    setNoOfLargeBoxesLong(hello1value)
+    const hello5 = hello1value * NoOfLargeBoxesTall
+    setNoOfLargeBoxes(hello5)
     setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
     setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setValueOfBox((numberOfBoxes) * ((numberOfBoxes + 1) / 2))
+    setNoOfSmallBoxesTall(hello1value)
+    setNoOfSmallBoxes(hello5)
+    setValueOfBox((hello5) * ((hello5 + 1) / 2))
   }
-  const updateWidthSmallBoxesHightOfLargeBoxes = (event) => {
-    const input = parseInt(event.target.value)
-    setNoOfLargeBoxesTall(input)
-    setNoOfSmallBoxesLong(input)
-    const numberOfBoxes = input * NoOfLargeBoxesLong
-    setNoOfLargeBoxes(numberOfBoxes)
-    setNoOfSmallBoxes(numberOfBoxes)
+  const hello2 = (event) => {
+    const hello2value = event.target.value
+    setNoOfLargeBoxesTall(hello2value)
+    const hello6 = hello2value * NoOfLargeBoxesLong
+    setNoOfLargeBoxes(hello6)
     setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
     setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setValueOfBox((numberOfBoxes) * ((numberOfBoxes + 1) / 2))
+    setNoOfSmallBoxesLong(hello2value)
+    setNoOfSmallBoxes(hello6)
+    setValueOfBox((hello6) * ((hello6 + 1) / 2))
   }
-
+  const hello3 = (event) => {
+    const hello3value = event.target.value
+    setNoOfSmallBoxesLong(hello3value)
+    const hello7 = hello3value * NoOfSmallBoxesTall
+    setNoOfSmallBoxes(hello7)
+    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill([])))
+    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
+    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
+    setValueOfBox((hello7) * ((hello7 + 1) / 2))
+  }
+  const hello4 = (event) => {
+    const hello4value = event.target.value
+    setNoOfSmallBoxesTall(hello4value)
+    const hello8 = hello4value * NoOfSmallBoxesLong
+    setNoOfSmallBoxes(hello8)
+    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill([])))
+    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
+    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
+    setValueOfBox((hello8) * ((hello8 + 1) / 2))
+  }
   const sizeOfSodukuGrid = () => {
   const sizeOfGrid =  (
     <div>
@@ -173,11 +192,11 @@ function App() {
         </div>
         <div className="lineUp">
           with 
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={updateHightSmallBoxesWidthOfLargeBoxes}/>
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello1}/>
         </div>
         <div className="lineUp">
           length
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={updateWidthSmallBoxesHightOfLargeBoxes}/>
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello2}/>
         </div>
       </div>
     </div>
