@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import CreateThreeLongRow from './ThreeLongRow'
-import ThreeLongSetOfLargeBoxes from './ThreeLongSetOfLargeBoxes'
-import ErrorChecking from './ErrorChecking'
+// import ThreeLongRow from './ThreeLongRow'
+// import ThreeLongSetOfLargeBoxes from './ThreeLongSetOfLargeBoxes'
+// import ErrorChecking from './ErrorChecking'
 
 function App() {
   const [NoOfLargeBoxesLong, setNoOfLargeBoxesLong] = useState(3)
@@ -11,18 +11,16 @@ function App() {
   const [NoOfSmallBoxesTall, setNoOfSmallBoxesTall] = useState(3)
   const [NoOfLargeBoxes, setNoOfLargeBoxes] = useState(9)
   const [NoOfSmallBoxes, setNoOfSmallBoxes] = useState(9)
-  const [currentGuess, setCurrentGuess] = useState("")
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
-  const [totalValue, setTotalValue] = useState(0)
-  const [zero, setZero] = useState(0)
   const [valueOfBox, setValueOfBox] = useState(405)
 
   const createGrid = () => {
   const fullGrid = []
+    console.log(typeof NoOfLargeBoxesTall)
     for (let a = 0; a < NoOfLargeBoxesTall; a++) {
       // full soduku
       const rowLineThickLong = <div className="rowLineThickLong"></div>
@@ -84,7 +82,7 @@ function App() {
         const inputNumber = event.target.value
         if (((inputNumber < 1) || (inputNumber > NoOfSmallBoxes)) && (inputNumber !== "")) setResponce(true)
         else setResponce(false)
-        const updatedClassListMinus1 = defaultClassOfBox.map(inner => [...inner])
+        const updatedClassList1 = defaultClassOfBox.map(inner => [...inner])
         for (let g = 0; g < NoOfLargeBoxes; g++) {
           for (let h = 0; h < NoOfSmallBoxes; h++) {
             const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
@@ -99,31 +97,27 @@ function App() {
               counter1 = (counter1 + parseInt(currentNumber))
               setTotalValue(counter1)
               // box checker
-              const updatedClassList0 = updatedClassListMinus1
               let doesLargeBoxContainDuplicats = (preventError2[g].includes(currentNumber))
-              const updatedClassList1 = updatedClassList0
               if (doesLargeBoxContainDuplicats) updatedClassList1[g][h] = "errorInputBox"
-              const updatedClassList2 = updatedClassList1
-              const updatedClassList3 = updatedClassList2
               for (let e = 0; e < NoOfLargeBoxesLong; e++) {
                 for (let f = 0; f < NoOfSmallBoxesLong; f++) { 
                   // row checker
                   let largeRowBox = (((Math.floor(g / NoOfLargeBoxesLong)) * NoOfLargeBoxesLong) + e)
                   let smallRowBox = (((Math.floor(h / NoOfSmallBoxesLong)) * NoOfSmallBoxesLong) + f)
                   let doesRowcontainDuplicates = (preventError2[largeRowBox][smallRowBox] === currentNumber)
-                  if (doesRowcontainDuplicates) updatedClassList3[largeRowBox][smallRowBox] = "errorInputBox"
-                  const updatedClassList4 = updatedClassList3
-                  if (doesRowcontainDuplicates) updatedClassList3[g][h] = "errorInputBox"
-                  const updatedClassList5 = updatedClassList4
+                  if (doesRowcontainDuplicates) updatedClassList1[largeRowBox][smallRowBox] = "errorInputBox"
+                  if (doesRowcontainDuplicates) updatedClassList1[g][h] = "errorInputBox"
                   // collem checker
                   let largeCollemBox = ((g % NoOfLargeBoxesLong) + (NoOfLargeBoxesLong * e))
+                  console.log(largeCollemBox)
                   let smallCollemBox = ((h % NoOfSmallBoxesLong) + (NoOfSmallBoxesLong * f))
+                  console.log(smallCollemBox)
+                  console.log(preventError2)
                   let doesCollemContainDuplicates = (preventError2[largeCollemBox][smallCollemBox] === currentNumber)
-                  if (doesCollemContainDuplicates) updatedClassList5[largeCollemBox][smallCollemBox] = "errorInputBox"
-                  const updatedClassList6 = updatedClassList5     
-                  if (doesCollemContainDuplicates) updatedClassList6[g][h] = "errorInputBox"
-                  setClassOfBox(updatedClassList6)
-                  if ((updatedClassList6.includes("errorInputBox") === false) && (counter1 === (valueOfBox * NoOfLargeBoxes))) setWin(true)
+                  if (doesCollemContainDuplicates) updatedClassList1[largeCollemBox][smallCollemBox] = "errorInputBox"    
+                  if (doesCollemContainDuplicates) updatedClassList1[g][h] = "errorInputBox"
+                  setClassOfBox(updatedClassList1)
+                  if ((updatedClassList1.includes("errorInputBox") === false) && (counter1 === (valueOfBox * NoOfLargeBoxes))) setWin(true)
                   if (counter1 !== (valueOfBox * NoOfLargeBoxes)) setWin(false)
                 }
               }
@@ -145,50 +139,31 @@ function App() {
     }
     return boxes
   }
-  const hello1 = (event) => {
-    const hello1value = event.target.value
-    setNoOfLargeBoxesLong(hello1value)
-    const hello5 = hello1value * NoOfLargeBoxesTall
-    setNoOfLargeBoxes(hello5)
+  const updateHightSmallBoxesWidthOfLargeBoxes = (event) => {
+    const input = parseInt(event.target.value)
+    setNoOfLargeBoxesLong(input)
+    setNoOfSmallBoxesTall(input)
+    const numberOfBoxes = input * NoOfLargeBoxesTall
+    setNoOfLargeBoxes(numberOfBoxes)
+    setNoOfSmallBoxes(numberOfBoxes)
     setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
     setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setNoOfSmallBoxesTall(hello1value)
-    setNoOfSmallBoxes(hello5)
-    setValueOfBox((hello5) * ((hello5 + 1) / 2))
+    setValueOfBox((numberOfBoxes) * ((numberOfBoxes + 1) / 2))
   }
-  const hello2 = (event) => {
-    const hello2value = event.target.value
-    setNoOfLargeBoxesTall(hello2value)
-    const hello6 = hello2value * NoOfLargeBoxesLong
-    setNoOfLargeBoxes(hello6)
+  const updateWidthSmallBoxesHightOfLargeBoxes = (event) => {
+    const input = parseInt(event.target.value)
+    setNoOfLargeBoxesTall(input)
+    setNoOfSmallBoxesLong(input)
+    const numberOfBoxes = input * NoOfLargeBoxesLong
+    setNoOfLargeBoxes(numberOfBoxes)
+    setNoOfSmallBoxes(numberOfBoxes)
     setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
     setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setNoOfSmallBoxesLong(hello2value)
-    setNoOfSmallBoxes(hello6)
-    setValueOfBox((hello6) * ((hello6 + 1) / 2))
+    setValueOfBox((numberOfBoxes) * ((numberOfBoxes + 1) / 2))
   }
-  const hello3 = (event) => {
-    const hello3value = event.target.value
-    setNoOfSmallBoxesLong(hello3value)
-    const hello7 = hello3value * NoOfSmallBoxesTall
-    setNoOfSmallBoxes(hello7)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
-    setValueOfBox((hello7) * ((hello7 + 1) / 2))
-  }
-  const hello4 = (event) => {
-    const hello4value = event.target.value
-    setNoOfSmallBoxesTall(hello4value)
-    const hello8 = hello4value * NoOfSmallBoxesLong
-    setNoOfSmallBoxes(hello8)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
-    setValueOfBox((hello8) * ((hello8 + 1) / 2))
-  }
+
   const sizeOfSodukuGrid = () => {
   const sizeOfGrid =  (
     <div>
@@ -198,11 +173,11 @@ function App() {
         </div>
         <div className="lineUp">
           with 
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello1}/>
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={updateHightSmallBoxesWidthOfLargeBoxes}/>
         </div>
         <div className="lineUp">
           length
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello2}/>
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={updateWidthSmallBoxesHightOfLargeBoxes}/>
         </div>
       </div>
     </div>
@@ -218,7 +193,7 @@ function App() {
   return (
     <>
       <div>
-        {responce ? "only values 1 to" + " " +{NoOfSmallBoxes} : null}
+        {responce ? "only values 1 to" + " " + NoOfSmallBoxes : null}
         {win ? "you win yay" : null}
       </div>
       <div>
