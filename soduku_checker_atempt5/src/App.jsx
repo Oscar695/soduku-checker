@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Box from './Box'
-// import CreateThreeLongRow from './ThreeLongRow'
+import ThreeLongRow from './ThreeLongRow'
 // import ThreeLongSetOfLargeBoxes from './ThreeLongSetOfLargeBoxes'
 // import ErrorChecking from './ErrorChecking'
 
@@ -51,17 +51,23 @@ function App() {
       // large box
       const rowLineThin = <div className="rowLineThin"></div>
       if (c !== 0) largeBox.push(rowLineThin)
-      const row = <div className="lineUp">
-        {/* <ThreeLongRow
-        a={a}
-        b={b}
-        c={c}
-        defaultClassOfBox={defaultClassOfBox}
-        arrayOfBoxes={arrayOfBoxes}
-        setClassOfBox={setClassOfBox}
-        setArrayOfBoxes={setArrayOfBoxes}/> */}
-        {createThreeLongRow(a, b, c)}
-      </div>
+      const row = <ThreeLongRow
+    NoOfSmallBoxesLong={NoOfSmallBoxesLong}
+    NoOfLargeBoxesLong={NoOfLargeBoxesLong}
+    a={a}
+    b={b}
+    c={c}
+    setResponce={setResponce}
+    defaultClassOfBox={defaultClassOfBox}
+    arrayOfBoxes={arrayOfBoxes}
+    NoOfSmallBoxes={NoOfSmallBoxes}
+    NoOfLargeBoxes={NoOfLargeBoxes}
+    setTotalValue={setTotalValue}
+    setClassOfBox={setClassOfBox}
+    setWin={setWin}
+    valueOfBox={valueOfBox}
+    setArrayOfBoxes={setArrayOfBoxes}
+    classOfBox={classOfBox}/>
       const rowLineThickShort = <div className="rowLineThickShort"></div>
       largeBox.push(row)
       if (c === (NoOfSmallBoxesTall - 1)) largeBox.push(rowLineThickShort)
