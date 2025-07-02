@@ -24,7 +24,7 @@
         const largeBox = []
         for (let c = 0; c < NoOfSmallBoxesTall; c++) {
         // large box
-        const rowLineThinShortLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.25 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
+        const rowLineThinShortLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.2 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
         const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
         if (c !== 0) largeBox.push(rowLineThin)
         const row = <ThreeLongRow
@@ -44,7 +44,7 @@
             setArrayOfBoxes={setArrayOfBoxes}
             classOfBox={classOfBox}
         />
-        const rowLineThickShortLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.05 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
+        const rowLineThickShortLength = {width: `${(2 * NoOfSmallBoxesLong) + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
         const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>
         largeBox.push(row)
         if (c === (NoOfSmallBoxesTall - 1)) largeBox.push(rowLineThickShort)

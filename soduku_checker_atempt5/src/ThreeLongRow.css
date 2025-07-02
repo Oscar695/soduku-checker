@@ -8,16 +8,20 @@
 
 .errorInputBox {
     text-align: center;
-    width: 2em;
-    height: 2em;
+    width: 2.4em;
+    height: 2.4em;
     display: unset;
-    color: red;
+    background-color: rgb(239, 71, 71);
+    border: 0;
+    padding: 0;
 }
 
 .inputBox {
     text-align: center;
-    width: 2em;
-    height: 2em;
+    width: 2.4em;
+    height: 2.4em;
     display: unset;
-    padding: 0em;
+    border: 0;
+    padding: 0;
+    background: none;
 } 

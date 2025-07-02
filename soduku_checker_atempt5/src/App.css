@@ -4,7 +4,6 @@
   text-align: center;
 }
 
-
 .lineUp {
   display: flex;
 }
@@ -13,9 +12,7 @@
   height: 2em;
   width: 2em;
   color: white;
-  display: flex;
-  text-align: center;
-  justify-content: flex-end;
+  align-content: center;
 }
 
 .boxRow {
@@ -31,7 +28,6 @@
 .rowLineThickLong {
   height: 0em;
   border: 0.15em solid darkgray;
-  width: 19.65em;
 }
 
 .rowLineThickShort {
@@ -62,11 +58,21 @@
   border: 0.05em solid lightgray;
 }
 
-.incorectValue {
-  color: red;
+.inputBoxWidthAndHight {
+  text-align: center;
+  width: 1.5em;
+  height: 1.5em;
+  display: unset;
+} 
+
+.setings {
+  display: flex;
+  padding-left: 2.5em;
 }
 
-
+.words {
+  text-align: center;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

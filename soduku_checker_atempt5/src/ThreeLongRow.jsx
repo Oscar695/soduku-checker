@@ -11,7 +11,6 @@
     defaultClassOfBox,
     arrayOfBoxes,
     numberOfBoxes,
-    setTotalValue,
     setClassOfBox,
     setWin,
     valueOfBox,
@@ -55,7 +54,6 @@
               let currentNumber = updatedValuesList1[g][h]
               if ((typeof currentNumber === typeof "") && (currentNumber !== "")) {
                 counter1 = (counter1 + parseInt(currentNumber))
-                setTotalValue(counter1)
                 // box checker
                 let doesLargeBoxContainDuplicats = (preventError2[g].includes(currentNumber))
                 if (doesLargeBoxContainDuplicats) updatedClassList1[g][h] = "errorInputBox"
