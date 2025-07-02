@@ -75,6 +75,10 @@ function App() {
       const onInputChange = (event) => {
         let counter = 0
         const inputNumber = event.target.value
+        console.log(((inputNumber < 1) || (inputNumber > 9)) && (inputNumber !== ""))
+        if (((inputNumber < 1) || (inputNumber > 9)) && (inputNumber !== "")) setResponce(true)
+        else setResponce(false)
+        if ((inputNumber < 1) || (inputNumber > 9)) return
         const updatedClassListMinus1 = defaultClassOfBox.map(inner => [...inner])
         for (let g = 0; g < 9; g++) {
           for (let h = 0; h < 9; h++) {
@@ -86,7 +90,7 @@ function App() {
             const preventError2 = preventError1
             preventError2[g][h] = 0
             let currentNumber = updatedValuesList1[g][h]
-            if ((typeof currentNumber === typeof "") && (currentNumber !== "")) {
+            if ((typeof currentNumber === typeof "") && (currentNumber !== "") && (currentNumber > 0) && (currentNumber < 10)) {
               counter = (counter + parseInt(currentNumber))
               setTotalValue(counter)
               // box checker
@@ -95,9 +99,6 @@ function App() {
               const updatedClassList1 = updatedClassList0
               if (doesLargeBoxContainDuplicats) updatedClassList1[g][h] = "errorInputBox"
               const updatedClassList2 = updatedClassList1
-              // let whereIsTheDuplicate = (preventError2[g][h] === currentNumber)
-              // console.log(whereIsTheDuplicate)
-              // if (whereIsTheDuplicate) updatedClassList2[g][h] = "errorInputBox"
               const updatedClassList3 = updatedClassList2
               for (let e = 0; e < 3; e++) {
                 for (let f = 0; f < 3; f++) { 
