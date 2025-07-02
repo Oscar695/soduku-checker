@@ -10,8 +10,7 @@
     setResponce,
     defaultClassOfBox,
     arrayOfBoxes,
-    NoOfSmallBoxes,
-    NoOfLargeBoxes,
+    numberOfBoxes,
     setTotalValue,
     setClassOfBox,
     setWin,
@@ -41,11 +40,11 @@
          const onInputChange = (event) => {
           let counter1 = 0
           const inputNumber = event.target.value
-          if (((inputNumber < 1) || (inputNumber > NoOfSmallBoxes)) && (inputNumber !== "")) setResponce(true)
+          if (((inputNumber < 1) || (inputNumber > numberOfBoxes)) && (inputNumber !== "")) setResponce(true)
           else setResponce(false)
           const updatedClassList1 = defaultClassOfBox.map(inner => [...inner])
-          for (let g = 0; g < NoOfLargeBoxes; g++) {
-            for (let h = 0; h < NoOfSmallBoxes; h++) {
+          for (let g = 0; g < numberOfBoxes; g++) {
+            for (let h = 0; h < numberOfBoxes; h++) {
               const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
               updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
               const updatedValuesList2 = updatedValuesList1
@@ -75,8 +74,8 @@
                     if (doesCollemContainDuplicates) updatedClassList1[largeCollemBox][smallCollemBox] = "errorInputBox"    
                     if (doesCollemContainDuplicates) updatedClassList1[g][h] = "errorInputBox"
                     setClassOfBox(updatedClassList1)
-                    if ((updatedClassList1.includes("errorInputBox") === false) && (counter1 === (valueOfBox * NoOfLargeBoxes))) setWin(true)
-                    if (counter1 !== (valueOfBox * NoOfLargeBoxes)) setWin(false)
+                    if ((updatedClassList1.includes("errorInputBox") === false) && (counter1 === (valueOfBox * numberOfBoxes))) setWin(true)
+                    if (counter1 !== (valueOfBox * numberOfBoxes)) setWin(false)
                   }
                 }
               }

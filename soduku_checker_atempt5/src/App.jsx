@@ -8,11 +8,14 @@ import LargeBox from './LargeBox'
 
 function App() {
   const [NoOfLargeBoxesLong, setNoOfLargeBoxesLong] = useState(3)
+  const [numberOfLargeBoxesLongAndNoOfSmallBoxesTall, setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall] = useState(3)
+  const [numberOfLargeBoxesTallAndNoOfSmallBoxesLong, setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong] = useState(3)
   const [NoOfLargeBoxesTall, setNoOfLargeBoxesTall] = useState(3)
   const [NoOfSmallBoxesLong, setNoOfSmallBoxesLong] = useState(3)
   const [NoOfSmallBoxesTall, setNoOfSmallBoxesTall] = useState(3)
   const [NoOfLargeBoxes, setNoOfLargeBoxes] = useState(9)
   const [NoOfSmallBoxes, setNoOfSmallBoxes] = useState(9)
+  const [numberOfBoxes, setNumberOfBoxes] = useState(9)
   const [currentGuess, setCurrentGuess] = useState("")
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
@@ -27,7 +30,8 @@ function App() {
   const fullGrid = []
     for (let a = 0; a < NoOfLargeBoxesTall; a++) {
       // full soduku
-      const rowLineThickLong = <div className="rowLineThickLong"></div>
+      const thickRowLineLength = {width: `${(NoOfLargeBoxesLong * ((2 * NoOfSmallBoxesLong) + 0.35 + ((NoOfSmallBoxesLong - 1) * 0.1)))}em`}
+      const rowLineThickLong = <div className="rowLineThickLong" style={thickRowLineLength}></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
       const grid = <div className="lineUp">{createThreeLongSetOfLargeBoxes(a)}</div>
       //<ThreeLongSetOfLargeBoxes a={a}/>
@@ -39,7 +43,8 @@ function App() {
     const threeLongSetOfLargeBoxes = []
     for (let b = 0; b < NoOfLargeBoxesLong; b++) {
       // 3 large boxs
-      const collemLineThickLong = <div className="collemLineThickLong"></div>
+      const thickCollemHight = {height: `${(2 * NoOfSmallBoxesTall) + ((NoOfSmallBoxesTall - 1) * 0.1)}em`}
+      const collemLineThickLong = <div className="collemLineThickLong" style={thickCollemHight}></div>
       const rowOfLargeBoxes = <LargeBox
       NoOfSmallBoxesLong={NoOfSmallBoxesLong}
       NoOfLargeBoxesLong={NoOfLargeBoxesLong}
@@ -48,8 +53,7 @@ function App() {
       setResponce={setResponce}
       defaultClassOfBox={defaultClassOfBox}
       arrayOfBoxes={arrayOfBoxes}
-      NoOfSmallBoxes={NoOfSmallBoxes}
-      NoOfLargeBoxes={NoOfLargeBoxes}
+      numberOfBoxes={numberOfBoxes}
       setTotalValue={setTotalValue}
       setClassOfBox={setClassOfBox}
       setWin={setWin}
@@ -62,50 +66,27 @@ function App() {
     }
     return threeLongSetOfLargeBoxes
   }
-  const hello1 = (event) => {
-    const hello1value = event.target.value
-    setNoOfLargeBoxesLong(hello1value)
-    const hello5 = hello1value * NoOfLargeBoxesTall
-    const hello8 = hello1value * NoOfSmallBoxesTall
-    setNoOfLargeBoxes(hello5)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setNoOfSmallBoxesTall(hello1value)
-    setNoOfSmallBoxes(hello8)
-    setValueOfBox((hello5) * ((hello5 + 1) / 2))
+  const LargeBoxHightSmallBoxWidth = (event) => {
+    const input = event.target.value
+    setNoOfLargeBoxesTall(input)
+    setNoOfSmallBoxesLong(input)
+    const NoOfboxes = input * NoOfLargeBoxesLong
+    setNumberOfBoxes(NoOfboxes)
+    setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
+    setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setValueOfBox((NoOfboxes) * ((NoOfboxes + 1) / 2))
   }
-  const hello2 = (event) => {
-    const hello2value = event.target.value
-    setNoOfLargeBoxesTall(hello2value)
-    const hello6 = hello2value * NoOfLargeBoxesLong
-    setNoOfLargeBoxes(hello6)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(NoOfSmallBoxes).fill("inputBox")))
-    setNoOfSmallBoxesLong(hello2value)
-    setNoOfSmallBoxes(hello6)
-    setValueOfBox((hello6) * ((hello6 + 1) / 2))
-  }
-  const hello3 = (event) => {
-    const hello3value = event.target.value
-    setNoOfSmallBoxesLong(hello3value)
-    const hello7 = hello3value * NoOfSmallBoxesTall
-    setNoOfSmallBoxes(hello7)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello7).fill("inputBox")))
-    setValueOfBox((hello7) * ((hello7 + 1) / 2))
-  }
-  const hello4 = (event) => {
-    const hello4value = event.target.value
-    setNoOfSmallBoxesTall(hello4value)
-    const hello8 = hello4value * NoOfSmallBoxesLong
-    setNoOfSmallBoxes(hello8)
-    setArrayOfBoxes(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill([])))
-    setClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
-    setDeafultClassOfBox(new Array(NoOfLargeBoxes).fill(new Array(hello8).fill("inputBox")))
-    setValueOfBox((hello8) * ((hello8 + 1) / 2))
+  const LargeBoxWidthSmallBoxHight = (event) => {
+    const input = event.target.value
+    setNoOfLargeBoxesLong(input)
+    setNoOfSmallBoxesTall(input)
+    const NoOfboxes = input * NoOfLargeBoxesTall
+    setNumberOfBoxes(NoOfboxes)
+    setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
+    setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setValueOfBox((NoOfboxes) * ((NoOfboxes + 1) / 2))
   }
   const sizeOfSodukuGrid = () => {
   const sizeOfGrid =  (
@@ -115,12 +96,12 @@ function App() {
           grid size
         </div>
         <div className="lineUp">
-          with 
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello1}/>
+          width 
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={LargeBoxHightSmallBoxWidth}/>
         </div>
         <div className="lineUp">
           length
-          <input type="number" autoComplete="off" id="" className="inputBox" onChange={hello2}/>
+          <input type="number" autoComplete="off" id="" className="inputBox" onChange={LargeBoxWidthSmallBoxHight}/>
         </div>
       </div>
     </div>
@@ -136,7 +117,7 @@ function App() {
   return (
     <>
       <div>
-        {responce ? "only values 1 to" + " " + NoOfSmallBoxes : null}
+        {responce ? "only values 1 to" + " " + numberOfBoxes : null}
         {win ? "you win yay" : null}
       </div>
       <div>

@@ -8,8 +8,7 @@
     setResponce,
     defaultClassOfBox,
     arrayOfBoxes,
-    NoOfSmallBoxes,
-    NoOfLargeBoxes,
+    numberOfBoxes,
     setTotalValue,
     setClassOfBox,
     setWin,
@@ -25,8 +24,8 @@
         const largeBox = []
         for (let c = 0; c < NoOfSmallBoxesTall; c++) {
         // large box
-        const rowLineThinLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.25 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
-        const rowLineThin = <div className="rowLineThin" style={rowLineThinLength}></div>
+        const rowLineThinShortLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.25 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
+        const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
         if (c !== 0) largeBox.push(rowLineThin)
         const row = <ThreeLongRow
             NoOfSmallBoxesLong={NoOfSmallBoxesLong}
@@ -37,8 +36,7 @@
             setResponce={setResponce}
             defaultClassOfBox={defaultClassOfBox}
             arrayOfBoxes={arrayOfBoxes}
-            NoOfSmallBoxes={NoOfSmallBoxes}
-            NoOfLargeBoxes={NoOfLargeBoxes}
+            numberOfBoxes={numberOfBoxes}
             setTotalValue={setTotalValue}
             setClassOfBox={setClassOfBox}
             setWin={setWin}
@@ -46,8 +44,8 @@
             setArrayOfBoxes={setArrayOfBoxes}
             classOfBox={classOfBox}
         />
-        const rowLineThickLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.05 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
-        const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickLength}></div>
+        const rowLineThickShortLength = {width: `${(2 * NoOfSmallBoxesLong) + 0.05 + ((NoOfSmallBoxesLong - 1) * 0.1)}em`}
+        const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>
         largeBox.push(row)
         if (c === (NoOfSmallBoxesTall - 1)) largeBox.push(rowLineThickShort)
         }
