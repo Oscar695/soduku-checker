@@ -45,13 +45,6 @@ collemLineThick = 0.15em
   text-align: center;
 }
 
-.errorInputBox {
-  text-align: center;
-  width: 2em;
-  display: unset;
-  color: red;
-}
-
 .rowLineThickLong {
   height: 0em;
   border: 0.15em solid darkgray;
@@ -61,7 +54,6 @@ collemLineThick = 0.15em
 .rowLineThickShort {
   height: 0em;
   border: 0.15em solid darkgray;
-  width: 6.25em;
 }
 
 .collemLineThickShort {
@@ -86,20 +78,12 @@ collemLineThick = 0.15em
 .rowLineThin {
   height: 0em;
   border: 0.05em solid lightgray;
-  width: 6.45em;
-
 }
 
 .incorectValue {
   color: red;
 }
 
-.hideInputBox {
-  text-align: center;
-  width: 2em;
-  display: unset;
-  visibility: hidden;
-}
 
 
 input::-webkit-outer-spin-button,

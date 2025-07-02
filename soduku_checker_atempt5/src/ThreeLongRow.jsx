@@ -1,5 +1,6 @@
   import Box from "./Box";
-  
+  import './ThreeLongRow.css'
+
   const ThreeLongRow = ({
     NoOfSmallBoxesLong,
     NoOfLargeBoxesLong,

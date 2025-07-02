@@ -1,0 +1,19 @@
+.hideInputBox {
+    text-align: center;
+    width: 2em;
+    display: unset;
+    visibility: hidden;
+}
+
+.errorInputBox {
+    text-align: center;
+    width: 2em;
+    display: unset;
+    color: red;
+}
+
+.inputBox {
+    text-align: center;
+    width: 2em;
+    display: unset;
+} 
