@@ -1,0 +1,9 @@
+.rowLineThickShort {
+    height: 0em;
+    border: 0.15em solid darkgray;
+}
+
+.rowLineThin {
+    height: 0em;
+    border: 0.05em solid lightgray;
+}

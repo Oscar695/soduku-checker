@@ -1,0 +1,60 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.solveButton {
+  border-radius: 2em;
+  align-content: center;
+  max-height: 10m;
+  
+}
+
+.inputPageVisible {
+  visibility: visible;
+}
+
+.inputPageInvisible {
+  visibility: hidden;
+}
+
+.solvePageVisible {
+  visibility: visible;
+}
+
+.solvePageInvisible {
+  visibility: hidden;
+}
+
+.inputButton {
+  border-radius: 2em;
+  align-content: center;
+  max-height: 10em;
+}
+
+.lineUp {
+  display: flex;
+}
+
+.lineUpButtons {
+  display: flex;
+  padding-bottom: 1em;
+  align-self: center;
+  align-content: center;
+}
+
+.seperation {
+  padding: 0.25em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

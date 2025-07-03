@@ -1,0 +1,47 @@
+.hideInputBox {
+    text-align: center;
+    width: 2em;
+    height: 2em;
+    display: unset;
+    visibility: hidden;
+}
+
+.errorInputBox {
+    text-align: center;
+    width: 2.4em;
+    height: 2.4em;
+    display: unset;
+    background-color: rgb(239, 71, 71);
+    border: 0;
+    padding: 0;
+}
+
+.inputBox {
+    text-align: center;
+    width: 2.4em;
+    height: 2.4em;
+    display: unset;
+    border: 0;
+    padding: 0;
+    background: none;
+} 
+
+.collemLineThin {
+    height: 1.9em;
+    border: 0.05em solid lightgray;
+    width: 0em;
+}
+
+.collemLineThickShort {
+    height: 1.85em;
+    border: 0.15em solid darkgray;
+    width: 0em;
+    margin-bottom: -0.2em;
+}
+
+.numberBox {  
+    height: 2em;
+    width: 2em;
+    color: white;
+    align-content: center;
+}

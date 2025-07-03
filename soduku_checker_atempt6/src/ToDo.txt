@@ -1,0 +1,8 @@
+Refactor
+naming
+css modules
+more componants
+check indentation
+diagram of componant tree
+try to minimise repeate code
+componants must return jsx eg <h1> or <div>
