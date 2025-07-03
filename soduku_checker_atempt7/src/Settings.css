@@ -1,0 +1,16 @@
+.setings {
+  display: flex;
+  padding-left: 1.5em;
+}
+
+.inputBoxWidthAndHight {
+  text-align: center;
+  width: 1.5em;
+  height: 1.5em;
+  display: unset;
+} 
+
+.words {
+  text-align: center;
+  color: black;
+}
