@@ -5,22 +5,22 @@ const Setings = ({
     largeBoxWidthSmallBoxHight,
 }) => {
   const createSetings = () => {
-  const setings =  (
-    <div>
+    const setings =  (
       <div>
         <div>
-          Grid size
-        </div>
-        <div className="words">
-          Width  
-          <input type="number" autoComplete="off" id="" className="inputBoxWidthAndHight" onChange={largeBoxHightSmallBoxWidth}/>
-        </div>
-        <div className="words">
-          Length   
-          <input type="number" autoComplete="off" id="" className="inputBoxWidthAndHight" onChange={largeBoxWidthSmallBoxHight}/>
+          <div>
+            Grid size
+          </div>
+          <div className="words">
+            Width  
+            <input type="number" autoComplete="off" id="" className="inputBoxWidthAndHight" onChange={largeBoxHightSmallBoxWidth}/>
+          </div>
+          <div className="words">
+            Length   
+            <input type="number" autoComplete="off" id="" className="inputBoxWidthAndHight" onChange={largeBoxWidthSmallBoxHight}/>
+          </div>
         </div>
       </div>
-    </div>
     )
     return setings
   }
