@@ -13,18 +13,30 @@
 
 .inputPageVisible {
   visibility: visible;
+  width: 30em;
+  height: 25em;
+  margin-right: -30em;
 }
 
 .inputPageInvisible {
   visibility: hidden;
+  width: 30em;
+  height: 25em;
+  margin-right: -30em;
 }
 
 .solvePageVisible {
   visibility: visible;
+  width: 30em;
+  height: 25em;
+  margin-right: -30em;
 }
 
 .solvePageInvisible {
   visibility: hidden;
+  width: 30em;
+  height: 25em;
+  margin-right: -30em;
 }
 
 .inputButton {

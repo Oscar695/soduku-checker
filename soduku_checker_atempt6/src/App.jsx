@@ -52,14 +52,35 @@ function App() {
     <>
       {/* swap page button */}
       <div className="lineUpButtons">
+        <div className="seperation"></div>
         <button className="inputButton" onClick={inputButtonPressed}>input soduku</button>
         <div className="seperation"></div>
         <button className="solveButton" onClick={solveButtonPressed}>solve soduku</button>
       </div>
-      <div>
+      <div className="lineUp">
         {/* input page */}
         <div className={classOfInputPage}>
-          
+        <div className="lineUp">
+            <Grid
+              numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+              numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+              setResponce={setResponce}
+              defaultClassOfBox={defaultClassOfBox}
+              arrayOfBoxes={arrayOfBoxes}
+              numberOfBoxes={numberOfBoxes}
+              setClassOfBox={setClassOfBox}
+              setWin={setWin}
+              valueOfBox={valueOfBox}
+              setArrayOfBoxes={setArrayOfBoxes}
+              classOfBox={classOfBox}
+            />
+            <div className="setings">
+              <Setings
+                largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
+                largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
+              />
+            </div>
+          </div>
         </div>
         {/* solve page */}
         <div className={classOfSolvePage}>
@@ -81,12 +102,6 @@ function App() {
               setArrayOfBoxes={setArrayOfBoxes}
               classOfBox={classOfBox}
             />
-            <div className="setings">
-              <Setings
-                largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
-                largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
-              />
-            </div>
           </div>
         </div>
       </div>
