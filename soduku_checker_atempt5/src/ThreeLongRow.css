@@ -25,3 +25,23 @@
     padding: 0;
     background: none;
 } 
+
+.collemLineThin {
+    height: 1.9em;
+    border: 0.05em solid lightgray;
+    width: 0em;
+}
+
+.collemLineThickShort {
+    height: 1.85em;
+    border: 0.15em solid darkgray;
+    width: 0em;
+    margin-bottom: -0.2em;
+}
+
+.numberBox {  
+    height: 2em;
+    width: 2em;
+    color: white;
+    align-content: center;
+}

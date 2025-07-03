@@ -1,4 +1,5 @@
 import LargeBox from "./LargeBox"
+import "./ThreeLongSetOfLargeBoxes.css"
 
 const ThreeLongSetOfLargeBoxes = ({
   numberOfLargeBoxesLongAndNoOfSmallBoxesTall,

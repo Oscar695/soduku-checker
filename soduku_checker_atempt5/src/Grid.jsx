@@ -1,4 +1,5 @@
 import ThreeLongSetOfLargeBoxes from "./ThreeLongSetOfLargeBoxes"
+import "./Grid.css"
 
 const Grid = ({
     numberOfLargeBoxesLongAndNoOfSmallBoxesTall,

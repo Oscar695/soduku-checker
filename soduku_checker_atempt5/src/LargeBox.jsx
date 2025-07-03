@@ -1,4 +1,5 @@
 import ThreeLongRow from "./ThreeLongRow"
+import "./LargeBox.css"
 
 const LargeBox = ({
     a,
