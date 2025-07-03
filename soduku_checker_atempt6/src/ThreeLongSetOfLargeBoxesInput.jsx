@@ -1,7 +1,7 @@
-import LargeBox from "./LargeBox"
+import LargeBoxInput from "./LargeBoxInput"
 import "./ThreeLongSetOfLargeBoxes.css"
 
-const ThreeLongSetOfLargeBoxes = ({
+const ThreeLongSetOfLargeBoxesInput = ({
   numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
   numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
   a,
@@ -21,7 +21,7 @@ const ThreeLongSetOfLargeBoxes = ({
       // 3 large boxs
       const thickCollemHight = {height: `${(2 * numberOfLargeBoxesLongAndNoOfSmallBoxesTall) + ((numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1) * 0.1)}em`}
       const collemLineThickLong = <div className="collemLineThickLong" style={thickCollemHight}></div>
-      const rowOfLargeBoxes = <LargeBox
+      const rowOfLargeBoxes = <LargeBoxInput
         numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
         numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
@@ -44,4 +44,4 @@ const ThreeLongSetOfLargeBoxes = ({
   return <div className="lineUp">{createThreeLongSetOfLargeBoxes()}</div>
 }  
 
-export default ThreeLongSetOfLargeBoxes
+export default ThreeLongSetOfLargeBoxesInput

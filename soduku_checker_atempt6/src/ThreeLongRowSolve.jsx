@@ -1,7 +1,7 @@
-import Box from "./Box";
+import BoxSolve from "./BoxSolve";
 import './ThreeLongRow.css'
 
-const ThreeLongRow = ({
+const ThreeLongRowSolve = ({
   a,
   b,
   c,
@@ -79,7 +79,7 @@ const ThreeLongRow = ({
           }
         }
       }
-      const box = <Box classOfBox={classOfBox} largeBoxNumber={largeBoxNumber} smallBoxNumber={smallBoxNumber} onInputChange={onInputChange} boxClass={boxClass}/>
+      const box = <BoxSolve classOfBox={classOfBox} largeBoxNumber={largeBoxNumber} smallBoxNumber={smallBoxNumber} onInputChange={onInputChange} boxClass={boxClass}/>
       boxes.push(box)
     }
     return boxes
@@ -87,4 +87,4 @@ const ThreeLongRow = ({
   return <div className="lineUp">{createThreeLongRow()}</div>
 }
 
-export default ThreeLongRow
+export default ThreeLongRowSolve

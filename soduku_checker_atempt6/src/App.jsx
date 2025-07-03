@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Grid from './Grid'
+import GridInput from './GridInput'
+import GridSolve from './GridSolve'
 import Setings from './Setings'
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
         {/* input page */}
         <div className={classOfInputPage}>
         <div className="lineUp">
-            <Grid
+            <GridInput
               numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
               numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
               setResponce={setResponce}
@@ -89,7 +90,7 @@ function App() {
             {win ? "you win yay" : null}
           </div>
           <div className="lineUp">
-            <Grid
+            <GridSolve
               numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
               numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
               setResponce={setResponce}

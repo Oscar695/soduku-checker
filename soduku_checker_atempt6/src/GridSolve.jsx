@@ -1,7 +1,7 @@
-import ThreeLongSetOfLargeBoxes from "./ThreeLongSetOfLargeBoxes"
+import ThreeLongSetOfLargeBoxesSolve from "./ThreeLongSetOfLargeBoxesSolve"
 import "./Grid.css"
 
-const Grid = ({
+const GridSolve = ({
     numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
     numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
     setResponce,
@@ -21,7 +21,7 @@ const Grid = ({
       const thickRowLineLength = {width: `${(numberOfLargeBoxesLongAndNoOfSmallBoxesTall * ((2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + 0.3 + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)))}em`}
       const rowLineThickLong = <div className="rowLineThickLong" style={thickRowLineLength}></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
-      const grid = <ThreeLongSetOfLargeBoxes
+      const grid = <ThreeLongSetOfLargeBoxesSolve
         numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong} 
         numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
@@ -42,4 +42,4 @@ const Grid = ({
   return <div>{createGrid()}</div>
 }
 
-export default Grid
+export default GridSolve

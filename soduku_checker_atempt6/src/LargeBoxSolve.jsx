@@ -1,7 +1,7 @@
-import ThreeLongRow from "./ThreeLongRow"
+import ThreeLongRowSolve from "./ThreeLongRowSolve"
 import "./LargeBox.css"
 
-const LargeBox = ({
+const LargeBoxSolve = ({
     a,
     b,
     numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
@@ -24,7 +24,7 @@ const LargeBox = ({
             const rowLineThinShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + 0.2 + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
             const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
             if (c !== 0) largeBox.push(rowLineThin)
-            const row = <ThreeLongRow
+            const row = <ThreeLongRowSolve
                 numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
                 numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
                 a={a}
@@ -51,4 +51,4 @@ const LargeBox = ({
     return <div>{createLargeBox()}</div>
 }
 
-export default LargeBox
+export default LargeBoxSolve
