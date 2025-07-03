@@ -14,8 +14,8 @@ function App() {
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
   const [valueOfBox, setValueOfBox] = useState(405)
-  const [classOfSolvePage, setclassOfSolvePage] = useState("solvePageInvisible")
-  const [classOfInputPage, setclassOfInputPage] = useState("inputPageVisible")
+  const [solvePage, setSolvePage] = useState(false)
+  const [inputPage, setInputPage] = useState(true)
   const [classOfBoxInput, setClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
   const [defaultClassOfBoxInput, setDeafultClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
 
@@ -46,13 +46,13 @@ function App() {
     setValueOfBox((NoOfboxes) * ((NoOfboxes + 1) / 2))
   }
   const inputButtonPressed = () => {
-    setclassOfSolvePage("solvePageInvisible")
-    setclassOfInputPage("inputPageVisible")
+    setSolvePage(false)
+    setInputPage(true)
   }
 
   const solveButtonPressed = () => {
-    setclassOfSolvePage("solvePageVisible")
-    setclassOfInputPage("inputPageInvisible")
+    setSolvePage(true)
+    setInputPage(false)
     const updatedClassList = defaultClassOfBox.map(inner => [...inner])
     for (let a = 0; a < numberOfBoxes; a++) {
       for (let b = 0; b < numberOfBoxes; b++) {
@@ -62,6 +62,66 @@ function App() {
       }
     }
     setDeafultClassOfBox(updatedClassList)
+  }
+
+  const theInputPage = () => {
+    return (
+      <div className="lineUp">
+        <div>
+          {responce ? "only values 1 to" + " " + numberOfBoxes : null}
+        </div>
+        <div className="lineUp">
+          <GridInput
+            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+            setResponce={setResponce}
+            defaultClassOfBox={defaultClassOfBox}
+            arrayOfBoxes={arrayOfBoxes}
+            numberOfBoxes={numberOfBoxes}
+            setClassOfBox={setClassOfBox}
+            setWin={setWin}
+            valueOfBox={valueOfBox}
+            setArrayOfBoxes={setArrayOfBoxes}
+            classOfBoxInput={classOfBoxInput}
+            setDeafultClassOfBox={setDeafultClassOfBox}
+            setClassOfBoxInput={setClassOfBoxInput}
+            defaultClassOfBoxInput={defaultClassOfBoxInput}
+          />
+        </div>
+        <div className="setings">
+          <Setings
+            largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
+            largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
+          />
+        </div>   
+      </div>
+    )
+  }
+
+  const theSolvePage = () => {
+    return (
+      <div>
+        <div>
+          {responce ? "only values 1 to" + " " + numberOfBoxes : null}
+          {win ? "you win yay" : null}
+        </div>
+        <div className="lineUp">
+          <GridSolve
+            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+            setResponce={setResponce}
+            defaultClassOfBox={defaultClassOfBox}
+            arrayOfBoxes={arrayOfBoxes}
+            numberOfBoxes={numberOfBoxes}
+            setClassOfBox={setClassOfBox}
+            setWin={setWin}
+            valueOfBox={valueOfBox}
+            setArrayOfBoxes={setArrayOfBoxes}
+            classOfBox={classOfBox}
+          />
+        </div>
+      </div>
+    )
   }
 
 
@@ -74,62 +134,68 @@ function App() {
         <div className="seperation"></div>
         <button className="solveButton" onClick={solveButtonPressed}>solve soduku</button>
       </div>
-      <div className="lineUp">
-        {/* input page */}
-        <div className={classOfInputPage}>
-          <div>
-            {responce ? "only values 1 to" + " " + numberOfBoxes : null}
-          </div>
-          <div className="lineUp">
-            <GridInput
-              numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
-              numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-              setResponce={setResponce}
-              defaultClassOfBox={defaultClassOfBox}
-              arrayOfBoxes={arrayOfBoxes}
-              numberOfBoxes={numberOfBoxes}
-              setClassOfBox={setClassOfBox}
-              setWin={setWin}
-              valueOfBox={valueOfBox}
-              setArrayOfBoxes={setArrayOfBoxes}
-              classOfBoxInput={classOfBoxInput}
-              setDeafultClassOfBox={setDeafultClassOfBox}
-              setClassOfBoxInput={setClassOfBoxInput}
-              defaultClassOfBoxInput={defaultClassOfBoxInput}
-            />
-            <div className="setings">
-              <Setings
-                largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
-                largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
-              />
-            </div>
-          </div>
-        </div>
-        {/* solve page */}
-        <div className={classOfSolvePage}>
-          <div>
-            {responce ? "only values 1 to" + " " + numberOfBoxes : null}
-            {win ? "you win yay" : null}
-          </div>
-          <div className="lineUp">
-            <GridSolve
-              numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
-              numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-              setResponce={setResponce}
-              defaultClassOfBox={defaultClassOfBox}
-              arrayOfBoxes={arrayOfBoxes}
-              numberOfBoxes={numberOfBoxes}
-              setClassOfBox={setClassOfBox}
-              setWin={setWin}
-              valueOfBox={valueOfBox}
-              setArrayOfBoxes={setArrayOfBoxes}
-              classOfBox={classOfBox}
-            />
-          </div>
-        </div>
+      <div>
+        {inputPage ? theInputPage() : null}
+        {solvePage ? theSolvePage() : null}
       </div>
     </>
   )
 }
 
 export default App
+
+
+      // <div className="lineUp">
+      //   {/* input page */}
+      //   <div className={classOfInputPage}>
+      //     <div>
+      //       {responce ? "only values 1 to" + " " + numberOfBoxes : null}
+      //     </div>
+      //     <div className="lineUp">
+      //       <GridInput
+      //         numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+      //         numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+      //         setResponce={setResponce}
+      //         defaultClassOfBox={defaultClassOfBox}
+      //         arrayOfBoxes={arrayOfBoxes}
+      //         numberOfBoxes={numberOfBoxes}
+      //         setClassOfBox={setClassOfBox}
+      //         setWin={setWin}
+      //         valueOfBox={valueOfBox}
+      //         setArrayOfBoxes={setArrayOfBoxes}
+      //         classOfBoxInput={classOfBoxInput}
+      //         setDeafultClassOfBox={setDeafultClassOfBox}
+      //         setClassOfBoxInput={setClassOfBoxInput}
+      //         defaultClassOfBoxInput={defaultClassOfBoxInput}
+      //       />
+      //       <div className="setings">
+      //         <Setings
+      //           largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
+      //           largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
+      //         />
+      //       </div>
+      //     </div>
+      //   </div>
+      //   {/* solve page */}
+      //   <div className={classOfSolvePage}>
+      //     <div>
+      //       {responce ? "only values 1 to" + " " + numberOfBoxes : null}
+      //       {win ? "you win yay" : null}
+      //     </div>
+      //     <div className="lineUp">
+      //       <GridSolve
+      //         numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+      //         numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+      //         setResponce={setResponce}
+      //         defaultClassOfBox={defaultClassOfBox}
+      //         arrayOfBoxes={arrayOfBoxes}
+      //         numberOfBoxes={numberOfBoxes}
+      //         setClassOfBox={setClassOfBox}
+      //         setWin={setWin}
+      //         valueOfBox={valueOfBox}
+      //         setArrayOfBoxes={setArrayOfBoxes}
+      //         classOfBox={classOfBox}
+      //       />
+      //     </div>
+      //   </div>
+      // </div>
