@@ -79,7 +79,14 @@ const ThreeLongRowSolve = ({
           }
         }
       }
-      const box = <BoxSolve classOfBox={classOfBox} largeBoxNumber={largeBoxNumber} smallBoxNumber={smallBoxNumber} onInputChange={onInputChange} boxClass={boxClass}/>
+      const box = <BoxSolve 
+        classOfBox={classOfBox} 
+        largeBoxNumber={largeBoxNumber} 
+        smallBoxNumber={smallBoxNumber} 
+        onInputChange={onInputChange} 
+        boxClass={boxClass}
+        arrayOfBoxes={arrayOfBoxes}
+      />
       boxes.push(box)
     }
     return boxes

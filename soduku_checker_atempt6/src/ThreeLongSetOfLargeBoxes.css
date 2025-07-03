@@ -1,4 +1,5 @@
 .collemLineThickLong {
-    border: 0.15em solid darkgray;
     width: 0em;
+    /* border: 0.15em solid darkgray; */
+    border: 0.15em solid black;
 }

@@ -14,8 +14,8 @@ function App() {
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
   const [valueOfBox, setValueOfBox] = useState(405)
-  const [classOfSolvePage, setclassOfSolvePage] = useState("inputPageVisible")
-  const [classOfInputPage, setclassOfInputPage] = useState("solvePageInvisible")
+  const [classOfSolvePage, setclassOfSolvePage] = useState("solvePageInvisible")
+  const [classOfInputPage, setclassOfInputPage] = useState("inputPageVisible")
   
 
   const largeBoxHightSmallBoxWidth = (event) => {
@@ -61,7 +61,10 @@ function App() {
       <div className="lineUp">
         {/* input page */}
         <div className={classOfInputPage}>
-        <div className="lineUp">
+          <div>
+            {responce ? "only values 1 to" + " " + numberOfBoxes : null}
+          </div>
+          <div className="lineUp">
             <GridInput
               numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
               numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}

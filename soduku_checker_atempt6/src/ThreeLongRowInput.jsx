@@ -79,7 +79,13 @@ const ThreeLongRowInput = ({
           }
         }
       }
-      const box = <BoxInput classOfBox={classOfBox} largeBoxNumber={largeBoxNumber} smallBoxNumber={smallBoxNumber} onInputChange={onInputChange} boxClass={boxClass}/>
+      const box = <BoxInput
+       classOfBox={classOfBox} 
+       largeBoxNumber={largeBoxNumber} 
+       smallBoxNumber={smallBoxNumber} 
+       onInputChange={onInputChange} 
+       boxClass={boxClass}
+      />
       boxes.push(box)
     }
     return boxes
