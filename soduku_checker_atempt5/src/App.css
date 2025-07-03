@@ -4,8 +4,48 @@
   text-align: center;
 }
 
+.solveButton {
+  border-radius: 2em;
+  align-content: center;
+  max-height: 10m;
+  
+}
+
+.inputPageVisible {
+  visibility: visible;
+}
+
+.inputPageInvisible {
+  visibility: hidden;
+}
+
+.solvePageVisible {
+  visibility: visible;
+}
+
+.solvePageInvisible {
+  visibility: hidden;
+}
+
+.inputButton {
+  border-radius: 2em;
+  align-content: center;
+  max-height: 10em;
+}
+
 .lineUp {
   display: flex;
+}
+
+.lineUpButtons {
+  display: flex;
+  padding-bottom: 1em;
+  align-self: center;
+  align-content: center;
+}
+
+.seperation {
+  padding: 0.25em;
 }
 
 input::-webkit-outer-spin-button,
