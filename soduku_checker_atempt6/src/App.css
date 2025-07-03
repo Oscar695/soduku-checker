@@ -4,11 +4,16 @@
   text-align: center;
 }
 
+.inputButton {
+  border-radius: 2em;
+  align-content: center;
+  font-size: large;
+}
+
 .solveButton {
   border-radius: 2em;
   align-content: center;
-  max-height: 10m;
-  
+  font-size: large;
 }
 
 .inputPageVisible {
@@ -37,12 +42,6 @@
   width: 30em;
   height: 25em;
   margin-right: -30em;
-}
-
-.inputButton {
-  border-radius: 2em;
-  align-content: center;
-  max-height: 10em;
 }
 
 .lineUp {

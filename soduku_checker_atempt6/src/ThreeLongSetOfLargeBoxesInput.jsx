@@ -14,6 +14,7 @@ const ThreeLongSetOfLargeBoxesInput = ({
   valueOfBox,
   setArrayOfBoxes,
   classOfBox,
+  setDeafultClassOfBox,
 }) => {
   const createThreeLongSetOfLargeBoxes = () => {
     const threeLongSetOfLargeBoxes = []
@@ -35,6 +36,7 @@ const ThreeLongSetOfLargeBoxesInput = ({
         valueOfBox={valueOfBox}
         setArrayOfBoxes={setArrayOfBoxes}
         classOfBox={classOfBox}
+        setDeafultClassOfBox={setDeafultClassOfBox}
       />
       threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
       if (b === (numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1)) threeLongSetOfLargeBoxes.push(collemLineThickLong)

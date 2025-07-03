@@ -77,6 +77,7 @@ function App() {
               valueOfBox={valueOfBox}
               setArrayOfBoxes={setArrayOfBoxes}
               classOfBox={classOfBox}
+              setDeafultClassOfBox={setDeafultClassOfBox}
             />
             <div className="setings">
               <Setings

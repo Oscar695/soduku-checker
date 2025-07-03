@@ -13,6 +13,7 @@ const GridInput = ({
     valueOfBox,
     setArrayOfBoxes,
     classOfBox,
+    setDeafultClassOfBox,
 }) => {
   const createGrid = () => {
   const fullGrid = []
@@ -34,6 +35,7 @@ const GridInput = ({
         valueOfBox={valueOfBox}
         setArrayOfBoxes={setArrayOfBoxes}
         classOfBox={classOfBox}
+        setDeafultClassOfBox={setDeafultClassOfBox}
       />
       fullGrid.push(grid)
     }

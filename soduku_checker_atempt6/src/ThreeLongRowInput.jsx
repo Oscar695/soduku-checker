@@ -16,6 +16,7 @@ const ThreeLongRowInput = ({
   classOfBox,
   numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
   numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+  setDeafultClassOfBox,
 
 }) => {
   // call in seperate function here
@@ -50,6 +51,7 @@ const ThreeLongRowInput = ({
             const preventError2 = preventError1
             preventError2[g][h] = 0
             let currentNumber = updatedValuesList1[g][h]
+            updatedClassList1[largeBoxNumber][smallBoxNumber] = "setValue" 
             if ((typeof currentNumber === typeof "") && (currentNumber !== "")) {
               counter1 = (counter1 + parseInt(currentNumber))
               // box checker
