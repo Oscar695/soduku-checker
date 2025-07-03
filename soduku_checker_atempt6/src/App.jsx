@@ -16,6 +16,9 @@ function App() {
   const [valueOfBox, setValueOfBox] = useState(405)
   const [classOfSolvePage, setclassOfSolvePage] = useState("solvePageInvisible")
   const [classOfInputPage, setclassOfInputPage] = useState("inputPageVisible")
+  const [classOfBoxInput, setClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
+  const [defaultClassOfBoxInput, setDeafultClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
+
   
 
   const largeBoxHightSmallBoxWidth = (event) => {
@@ -26,6 +29,8 @@ function App() {
     setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
     setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
+    setDeafultClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
     setValueOfBox((NoOfboxes) * ((NoOfboxes + 1) / 2))
   }
   const largeBoxWidthSmallBoxHight = (event) => {
@@ -36,6 +41,8 @@ function App() {
     setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
     setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
+    setClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
+    setDeafultClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
     setValueOfBox((NoOfboxes) * ((NoOfboxes + 1) / 2))
   }
   const inputButtonPressed = () => {
@@ -46,6 +53,17 @@ function App() {
   const solveButtonPressed = () => {
     setclassOfSolvePage("solvePageVisible")
     setclassOfInputPage("inputPageInvisible")
+    const updatedClassList = defaultClassOfBox.map(inner => [...inner])
+    for (let a = 0; a < numberOfBoxes; a++) {
+      for (let b = 0; b < numberOfBoxes; b++) {
+        if ((arrayOfBoxes[a][b] !== "") && (typeof arrayOfBoxes[a][b] === typeof "")) {
+          updatedClassList[a][b] = "setValue"
+        }
+      }
+    }
+    setDeafultClassOfBox(updatedClassList)
+    console.log(updatedClassList)
+    console.log(defaultClassOfBox)
   }
 
 
@@ -76,8 +94,10 @@ function App() {
               setWin={setWin}
               valueOfBox={valueOfBox}
               setArrayOfBoxes={setArrayOfBoxes}
-              classOfBox={classOfBox}
+              classOfBoxInput={classOfBoxInput}
               setDeafultClassOfBox={setDeafultClassOfBox}
+              setClassOfBoxInput={setClassOfBoxInput}
+              defaultClassOfBoxInput={defaultClassOfBoxInput}
             />
             <div className="setings">
               <Setings

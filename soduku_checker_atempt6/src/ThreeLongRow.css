@@ -6,17 +6,6 @@
     visibility: hidden;
 }
 
-.setValue {
-    text-align: center;
-    width: 2em;
-    height: 2em;
-    display: unset;
-    border: 0;
-    padding: 0;
-    font-size: medium;
-    color: black; 
-}
-
 .errorInputBox {
     text-align: center;
     width: 2em;

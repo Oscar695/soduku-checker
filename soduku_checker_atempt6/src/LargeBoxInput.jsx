@@ -15,7 +15,10 @@ const LargeBoxInput = ({
     setWin,
     valueOfBox,
     setArrayOfBoxes,
-    classOfBox,
+    classOfBoxInput,
+    setDeafultClassOfBox,
+    setClassOfBoxInput,
+    defaultClassOfBoxInput,
 }) => {
     const createLargeBox = () => {
         const largeBox = []
@@ -39,7 +42,10 @@ const LargeBoxInput = ({
                 setWin={setWin}
                 valueOfBox={valueOfBox}
                 setArrayOfBoxes={setArrayOfBoxes}
-                classOfBox={classOfBox}
+                classOfBoxInput={classOfBoxInput}
+                setDeafultClassOfBox={setDeafultClassOfBox}
+                setClassOfBoxInput={setClassOfBoxInput}
+                defaultClassOfBoxInput={defaultClassOfBoxInput}
             />
             const rowLineThickShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
             const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>

@@ -13,10 +13,12 @@ const ThreeLongRowInput = ({
   setWin,
   valueOfBox,
   setArrayOfBoxes,
-  classOfBox,
+  classOfBoxInput,
   numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
   numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
   setDeafultClassOfBox,
+  setClassOfBoxInput,
+  defaultClassOfBoxInput,
 
 }) => {
   // call in seperate function here
@@ -40,18 +42,16 @@ const ThreeLongRowInput = ({
         const inputNumber = event.target.value
         if (((inputNumber < 1) || (inputNumber > numberOfBoxes)) && (inputNumber !== "")) setResponce(true)
         else setResponce(false)
-        const updatedClassList1 = defaultClassOfBox.map(inner => [...inner])
+        const updatedClassList1 = defaultClassOfBoxInput.map(inner => [...inner])
         for (let g = 0; g < numberOfBoxes; g++) {
           for (let h = 0; h < numberOfBoxes; h++) {
             const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
             updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
-            const updatedValuesList2 = updatedValuesList1
             const preventError1 = arrayOfBoxes.map(inner => [...inner])
             preventError1[largeBoxNumber][smallBoxNumber] = inputNumber
             const preventError2 = preventError1
             preventError2[g][h] = 0
-            let currentNumber = updatedValuesList1[g][h]
-            updatedClassList1[largeBoxNumber][smallBoxNumber] = "setValue" 
+            let currentNumber = updatedValuesList1[g][h] 
             if ((typeof currentNumber === typeof "") && (currentNumber !== "")) {
               counter1 = (counter1 + parseInt(currentNumber))
               // box checker
@@ -71,18 +71,18 @@ const ThreeLongRowInput = ({
                   let doesCollemContainDuplicates = (preventError2[largeCollemBox][smallCollemBox] === currentNumber)
                   if (doesCollemContainDuplicates) updatedClassList1[largeCollemBox][smallCollemBox] = "errorInputBox"    
                   if (doesCollemContainDuplicates) updatedClassList1[g][h] = "errorInputBox"
-                  setClassOfBox(updatedClassList1)
+                  setClassOfBoxInput(updatedClassList1)
                   if ((updatedClassList1.includes("errorInputBox") === false) && (counter1 === (valueOfBox * numberOfBoxes))) setWin(true)
                   if (counter1 !== (valueOfBox * numberOfBoxes)) setWin(false)
                 }
               }
             }
-            setArrayOfBoxes(updatedValuesList2)  
+            setArrayOfBoxes(updatedValuesList1)  
           }
         }
       }
       const box = <BoxInput
-       classOfBox={classOfBox} 
+       classOfBoxInput={classOfBoxInput} 
        largeBoxNumber={largeBoxNumber} 
        smallBoxNumber={smallBoxNumber} 
        onInputChange={onInputChange} 
