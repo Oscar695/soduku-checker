@@ -62,8 +62,6 @@ function App() {
       }
     }
     setDeafultClassOfBox(updatedClassList)
-    console.log(updatedClassList)
-    console.log(defaultClassOfBox)
   }
 
 
