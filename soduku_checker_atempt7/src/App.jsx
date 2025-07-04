@@ -27,16 +27,18 @@ function App() {
   const [smallNumbersButton, setsmallNumbersButton] = useState("setingsSolveButton")
 
   const smallNumbers = () => {
-    <div>
-      <div className="lineUp">
-        <div>1</div>
-        <div>2</div>
+    return (   
+      <div>
+        <div className="lineUp">
+          <div>1</div>
+          <div>2</div>
+        </div>
+        <div className="lineUp">
+          <div>3</div>
+          <div>4</div>
+        </div>
       </div>
-      <div className="lineUp">
-        <div>3</div>
-        <div>4</div>
-      </div>
-    </div>
+    )
   }
 
   const largeNumbersButtonPresed = () => {
@@ -194,6 +196,8 @@ function App() {
     )
   }
 
+  console.log(smallNumbers)
+
   const theSolvePage = () => {
     return (
       <div className="lineUp">
@@ -225,6 +229,16 @@ function App() {
             smallNumbersButtonPresed={smallNumbersButtonPresed}
           />
         </div>
+        <div>
+        <div className="lineUp">
+          <div>1</div>
+          <div>2</div>
+        </div>
+        <div className="lineUp">
+          <div>3</div>
+          <div>4</div>
+        </div>
+      </div>
       </div>
     )
   }

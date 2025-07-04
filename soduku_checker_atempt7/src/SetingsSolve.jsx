@@ -14,7 +14,7 @@ const SetingsSolve = ({
                     <input type="button" className={largeNumbersButton} value={"1"} onClick={largeNumbersButtonPresed} />
                 </div>
                 <div>
-                    <input type="button" className={smallNumbersButton} value={smallNumbers} onClick={smallNumbersButtonPresed} />
+                    <input type="button" className={smallNumbersButton} value={1234} onClick={smallNumbersButtonPresed} />
                 </div>
             </div>
         )
