@@ -8,13 +8,25 @@
   width: 1.5em;
   height: 1.5em;
   display: unset;
+  border-right: 0.15em solid black;
+  border-radius: 0.5em;
+  margin-right: 0.1em;
 } 
 
 .words {
   text-align: center;
   color: black;
+  border-right: 0.15em solid black;
+  padding-left: 0.1em;
+  align-content: space-evenly;
 }
 
-.longBox {
-  width: 4em;
+.setingsLineSeperator {
+  border: 0.1em solid black;
+}
+
+.setingsBox {
+  border: 0.2em solid black;
+  border-radius: 0.5em;
+  display: flex;
 }

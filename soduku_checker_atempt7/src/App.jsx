@@ -14,16 +14,72 @@ function App() {
   const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
   const [win, setWin] = useState(false)
-  const [valueOfBox, setValueOfBox] = useState(405)
+  const [valueOfBox, setValueOfBox] = useState(45)
   const [solvePage, setSolvePage] = useState(false)
   const [inputPage, setInputPage] = useState(true)
   const [classOfBoxInput, setClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
   const [defaultClassOfBoxInput, setDeafultClassOfBoxInput] = useState(new Array(9).fill(new Array(9).fill("setValue")))
+  const [checked2By2, setChecked2By2] = useState(false)
+  const [checked3By2, setChecked3By2] = useState(false)
+  const [checked3By3, setChecked3By3] = useState(true)
 
-  
+
+  const preMadeGrid2By2 = () => {
+    setChecked2By2(true)
+    setChecked3By2(false)
+    setChecked3By3(false)
+    setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong(2)
+    setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall(2)
+    setNumberOfBoxes(4)
+    setArrayOfBoxes(new Array(4).fill(new Array(4).fill([])))
+    setArrayOfBoxesInput(new Array(4).fill(new Array(4).fill([])))
+    setClassOfBox(new Array(4).fill(new Array(4).fill("inputBox")))
+    setDeafultClassOfBox(new Array(4).fill(new Array(4).fill("inputBox")))
+    setClassOfBoxInput(new Array(4).fill(new Array(4).fill("setValue")))
+    setDeafultClassOfBoxInput(new Array(4).fill(new Array(4).fill("setValue")))
+    setValueOfBox(10)
+  }
+
+  const preMadeGrid3By2 = () => {
+    setChecked2By2(false)
+    setChecked3By2(true)
+    setChecked3By3(false)
+    setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong(3)
+    setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall(2)
+    setNumberOfBoxes(6)
+    setArrayOfBoxes(new Array(6).fill(new Array(6).fill([])))
+    setArrayOfBoxesInput(new Array(6).fill(new Array(6).fill([])))
+    setClassOfBox(new Array(6).fill(new Array(6).fill("inputBox")))
+    setDeafultClassOfBox(new Array(6).fill(new Array(6).fill("inputBox")))
+    setClassOfBoxInput(new Array(6).fill(new Array(6).fill("setValue")))
+    setDeafultClassOfBoxInput(new Array(6).fill(new Array(6).fill("setValue")))
+    setValueOfBox(21)
+  }
+
+  const preMadeGrid3By3 = () => {
+    setChecked2By2(false)
+    setChecked3By2(false)
+    setChecked3By3(true)
+    setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong(3)
+    setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall(3)
+    setNumberOfBoxes(9)
+    setArrayOfBoxes(new Array(9).fill(new Array(9).fill([])))
+    setArrayOfBoxesInput(new Array(9).fill(new Array(9).fill([])))
+    setClassOfBox(new Array(9).fill(new Array(9).fill("inputBox")))
+    setDeafultClassOfBox(new Array(9).fill(new Array(9).fill("inputBox")))
+    setClassOfBoxInput(new Array(9).fill(new Array(9).fill("setValue")))
+    setDeafultClassOfBoxInput(new Array(9).fill(new Array(9).fill("setValue")))
+    setValueOfBox(45)
+  }
 
   const largeBoxHightSmallBoxWidth = (event) => {
     const input = event.target.value
+    if ((parseInt(input) === 2) && (parseInt(numberOfLargeBoxesLongAndNoOfSmallBoxesTall) === 2)) setChecked2By2(true)
+    else setChecked2By2(false)
+    if ((parseInt(input) === 3) && (parseInt(numberOfLargeBoxesLongAndNoOfSmallBoxesTall) === 2)) setChecked3By2(true)
+    else setChecked3By2(false)
+    if ((parseInt(input) === 3) && (parseInt(numberOfLargeBoxesLongAndNoOfSmallBoxesTall) === 3)) setChecked3By3(true)
+    else setChecked3By3(false)
     setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong(input)
     const NoOfboxes = input * numberOfLargeBoxesLongAndNoOfSmallBoxesTall
     setNumberOfBoxes(NoOfboxes)
@@ -37,6 +93,12 @@ function App() {
   }
   const largeBoxWidthSmallBoxHight = (event) => {
     const input = event.target.value
+    if ((parseInt(input) === 2) && (parseInt(numberOfLargeBoxesTallAndNoOfSmallBoxesLong) === 2)) setChecked2By2(true)
+    else setChecked2By2(false)
+    if ((parseInt(input) === 2) && (parseInt(numberOfLargeBoxesTallAndNoOfSmallBoxesLong) === 3)) setChecked3By2(true)
+    else setChecked3By2(false)
+    if ((parseInt(input) === 3) && (parseInt(numberOfLargeBoxesTallAndNoOfSmallBoxesLong) === 3)) setChecked3By3(true)
+    else setChecked3By3(false)
     setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall(input)
     const NoOfboxes = input * numberOfLargeBoxesTallAndNoOfSmallBoxesLong
     setNumberOfBoxes(NoOfboxes)
@@ -91,6 +153,12 @@ function App() {
         </div>
         <div className="setings">
           <Setings
+            checked2By2={checked2By2}
+            checked3By2={checked3By2}
+            checked3By3={checked3By3}
+            preMadeGrid2By2={preMadeGrid2By2}
+            preMadeGrid3By2={preMadeGrid3By2}
+            preMadeGrid3By3={preMadeGrid3By3}
             largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
             largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
             numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
