@@ -19,7 +19,7 @@ const GridInput = ({
   const fullGrid = []
     for (let a = 0; a < numberOfLargeBoxesTallAndNoOfSmallBoxesLong; a++) {
       // full soduku
-      const thickRowLineLength = {width: `${(numberOfLargeBoxesLongAndNoOfSmallBoxesTall * ((2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + 0.3 + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)))}em`}
+      const thickRowLineLength = {width: `${(numberOfLargeBoxesLongAndNoOfSmallBoxesTall * ((42 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 1.6) + 4.8))}px`}
       const rowLineThickLong = <div className="rowLineThickLong" style={thickRowLineLength}></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
       const grid = <ThreeLongSetOfLargeBoxesInput

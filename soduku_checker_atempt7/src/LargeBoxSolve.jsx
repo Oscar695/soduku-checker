@@ -21,7 +21,7 @@ const LargeBoxSolve = ({
         const largeBox = []
         for (let c = 0; c < numberOfLargeBoxesLongAndNoOfSmallBoxesTall; c++) {
             // large box
-            const rowLineThinShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + 0.2 + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
+            const rowLineThinShortLength = {width: `${(42 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + 3.2 + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 1.6)}px`}
             const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
             if (c !== 0) largeBox.push(rowLineThin)
             const row = <ThreeLongRowSolve
@@ -41,7 +41,7 @@ const LargeBoxSolve = ({
                 numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
                 numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
             />
-            const rowLineThickShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
+            const rowLineThickShortLength = {width: `${(42 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 1.6)}px`}
             const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>
             largeBox.push(row)
             if (c === (numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1)) largeBox.push(rowLineThickShort)

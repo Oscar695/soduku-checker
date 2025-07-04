@@ -1,5 +1,5 @@
 .rowLineThickLong {
-    height: 0em;
+    height: 0px;
     /* border: 0.15em solid darkgray; */
-    border: 0.15em solid black;
+    border: 2.4px solid black;
 }

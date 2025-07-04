@@ -11,7 +11,8 @@ const SetingsSolve = ({
     const hello = (a, string) => {
         const threeLongSolveBoxes = []
         for (let b = 0; b < 3; b++) {
-            const box = <div className={string}>{(((3 * a) + b) + 1)}</div> 
+            const input = (((3 * a) + b) + 1).toString()
+            const box = <button className={string}>{input}</button>
             threeLongSolveBoxes.push(box)
         }
         return threeLongSolveBoxes
@@ -49,10 +50,13 @@ const SetingsSolve = ({
                 </div>
                 <div>
                     <div>
-                        <input type="button" className={largeNumbersButton} value={"1"} onClick={largeNumbersButtonPresed} />
+                        <button className={largeNumbersButton} onClick={largeNumbersButtonPresed}>1</button>
                     </div>
                     <div>
-                        <input type="button" className={smallNumbersButton} value={"1 2 3 4"} onClick={smallNumbersButtonPresed} />
+                        <button className={smallNumbersButton} onClick={smallNumbersButtonPresed}>
+                            1 2<br />
+                            3 4
+                        </button>
                     </div>
                 </div>
             </div>
