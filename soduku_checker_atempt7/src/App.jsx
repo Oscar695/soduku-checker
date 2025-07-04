@@ -23,32 +23,23 @@ function App() {
   const [checked2By2, setChecked2By2] = useState(false)
   const [checked3By2, setChecked3By2] = useState(false)
   const [checked3By3, setChecked3By3] = useState(true)
-  const [largeNumbersButton, setLargeNumbersButton] = useState("setingsSolveButton")
-  const [smallNumbersButton, setsmallNumbersButton] = useState("setingsSolveButton")
-
-  const smallNumbers = () => {
-    return (   
-      <div>
-        <div className="lineUp">
-          <div>1</div>
-          <div>2</div>
-        </div>
-        <div className="lineUp">
-          <div>3</div>
-          <div>4</div>
-        </div>
-      </div>
-    )
-  }
+  const [largeNumbersButton, setLargeNumbersButton] = useState("setingsSolveButtonLargeNumbersHighlighted")
+  const [smallNumbersButton, setsmallNumbersButton] = useState("setingsSolveButtonSmallNumbers")
+  const [largeNumbers, setLargeNumbers] = useState(true)
+  const [smallNumbers, setSmallNumbers] = useState(false)
 
   const largeNumbersButtonPresed = () => {
-    setLargeNumbersButton("setingsSolveButtonHighlighted")
-    setsmallNumbersButton("setingsSolveButton")
+    setLargeNumbersButton("setingsSolveButtonLargeNumbersHighlighted")
+    setsmallNumbersButton("setingsSolveButtonSmallNumbers")
+    setLargeNumbers(true)
+    setSmallNumbers(false)
   }
 
   const smallNumbersButtonPresed = () => {
-    setLargeNumbersButton("setingsSolveButton")
-    setsmallNumbersButton("setingsSolveButtonHighlighted")
+    setLargeNumbersButton("setingsSolveButtonLargeNumbers")
+    setsmallNumbersButton("setingsSolveButtonSmallNumbersHighlighted")
+    setLargeNumbers(false)
+    setSmallNumbers(true)
   }
 
   const preMadeGrid2By2 = () => {
@@ -196,8 +187,6 @@ function App() {
     )
   }
 
-  console.log(smallNumbers)
-
   const theSolvePage = () => {
     return (
       <div className="lineUp">
@@ -223,22 +212,13 @@ function App() {
         <div className="setings">
           <SetingsSolve
             smallNumbers={smallNumbers}
+            largeNumbers={largeNumbers}
             largeNumbersButton={largeNumbersButton}
             smallNumbersButton={smallNumbersButton}
             largeNumbersButtonPresed={largeNumbersButtonPresed}
             smallNumbersButtonPresed={smallNumbersButtonPresed}
           />
         </div>
-        <div>
-        <div className="lineUp">
-          <div>1</div>
-          <div>2</div>
-        </div>
-        <div className="lineUp">
-          <div>3</div>
-          <div>4</div>
-        </div>
-      </div>
       </div>
     )
   }

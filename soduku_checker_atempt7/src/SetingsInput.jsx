@@ -27,7 +27,7 @@ const SetingsInput = ({
             <div className="setingsLineSeperator"></div>
             <div className="words" >
               3 by 2
-              <input type="checkbox" id="" className="inputBoxWidthAndHight" onChange={preMadeGrid3By2} checked={checked3By2(2,2)} />
+              <input type="checkbox" id="" className="inputBoxWidthAndHight" onChange={preMadeGrid3By2} checked={checked3By2} />
             </div>
             <div className="setingsLineSeperator"></div>
             <div className="words" >
