@@ -5,21 +5,18 @@ const ThreeLongRowInput = ({
   a,
   b,
   c,
-  setResponce,
-  defaultClassOfBox,
-  arrayOfBoxes,
-  numberOfBoxes,
-  setClassOfBox,
   setWin,
   valueOfBox,
-  setArrayOfBoxes,
+  setResponce,
+  numberOfBoxes,
   classOfBoxInput,
-  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
-  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-  setDeafultClassOfBox,
+  setArrayOfBoxes,
+  arrayOfBoxesInput,
   setClassOfBoxInput,
+  setArrayOfBoxesInput,
   defaultClassOfBoxInput,
-
+  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   // call in seperate function here
   // const preventError1 = arrayOfBoxes.map(inner => [...inner])
@@ -45,9 +42,9 @@ const ThreeLongRowInput = ({
         const updatedClassList1 = defaultClassOfBoxInput.map(inner => [...inner])
         for (let g = 0; g < numberOfBoxes; g++) {
           for (let h = 0; h < numberOfBoxes; h++) {
-            const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
+            const updatedValuesList1 = arrayOfBoxesInput.map(inner => [...inner])
             updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
-            const preventError1 = arrayOfBoxes.map(inner => [...inner])
+            const preventError1 = arrayOfBoxesInput.map(inner => [...inner])
             preventError1[largeBoxNumber][smallBoxNumber] = inputNumber
             const preventError2 = preventError1
             preventError2[g][h] = 0
@@ -77,16 +74,18 @@ const ThreeLongRowInput = ({
                 }
               }
             }
-            setArrayOfBoxes(updatedValuesList1)  
+            setArrayOfBoxes(updatedValuesList1) 
+            setArrayOfBoxesInput(updatedValuesList1) 
           }
         }
       }
       const box = <BoxInput
-       classOfBoxInput={classOfBoxInput} 
-       largeBoxNumber={largeBoxNumber} 
-       smallBoxNumber={smallBoxNumber} 
-       onInputChange={onInputChange} 
-       boxClass={boxClass}
+        boxClass={boxClass}
+        onInputChange={onInputChange} 
+        largeBoxNumber={largeBoxNumber} 
+        smallBoxNumber={smallBoxNumber} 
+        classOfBoxInput={classOfBoxInput} 
+        arrayOfBoxesInput={arrayOfBoxesInput}
       />
       boxes.push(box)
     }

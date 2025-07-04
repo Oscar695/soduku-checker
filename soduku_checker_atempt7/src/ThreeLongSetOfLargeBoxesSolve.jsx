@@ -2,18 +2,18 @@ import LargeBoxSolve from "./LargeBoxSolve"
 import "./ThreeLongSetOfLargeBoxes.css"
 
 const ThreeLongSetOfLargeBoxesSolve = ({
-  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
   a,
+  setWin,
+  classOfBox,
+  valueOfBox,
   setResponce,
-  defaultClassOfBox,
   arrayOfBoxes,
   numberOfBoxes,
   setClassOfBox,
-  setWin,
-  valueOfBox,
   setArrayOfBoxes,
-  classOfBox,
+  defaultClassOfBox,
+  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   const createThreeLongSetOfLargeBoxes = () => {
     const threeLongSetOfLargeBoxes = []
@@ -22,19 +22,19 @@ const ThreeLongSetOfLargeBoxesSolve = ({
       const thickCollemHight = {height: `${(2 * numberOfLargeBoxesLongAndNoOfSmallBoxesTall) + ((numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1) * 0.1)}em`}
       const collemLineThickLong = <div className="collemLineThickLong" style={thickCollemHight}></div>
       const rowOfLargeBoxes = <LargeBoxSolve
-        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
         b={b}
+        setWin={setWin}
+        classOfBox={classOfBox}
+        valueOfBox={valueOfBox}
         setResponce={setResponce}
-        defaultClassOfBox={defaultClassOfBox}
         arrayOfBoxes={arrayOfBoxes}
         numberOfBoxes={numberOfBoxes}
         setClassOfBox={setClassOfBox}
-        setWin={setWin}
-        valueOfBox={valueOfBox}
         setArrayOfBoxes={setArrayOfBoxes}
-        classOfBox={classOfBox}
+        defaultClassOfBox={defaultClassOfBox}
+        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
       />
       threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
       if (b === (numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1)) threeLongSetOfLargeBoxes.push(collemLineThickLong)

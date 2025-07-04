@@ -2,17 +2,17 @@ import ThreeLongSetOfLargeBoxesSolve from "./ThreeLongSetOfLargeBoxesSolve"
 import "./Grid.css"
 
 const GridSolve = ({
-    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
+    setWin,
+    classOfBox,
+    valueOfBox,
     setResponce,
-    defaultClassOfBox,
     arrayOfBoxes,
     numberOfBoxes,
     setClassOfBox,
-    setWin,
-    valueOfBox,
     setArrayOfBoxes,
-    classOfBox,
+    defaultClassOfBox,
+    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   const createGrid = () => {
   const fullGrid = []
@@ -22,18 +22,18 @@ const GridSolve = ({
       const rowLineThickLong = <div className="rowLineThickLong" style={thickRowLineLength}></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
       const grid = <ThreeLongSetOfLargeBoxesSolve
-        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong} 
-        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
+        setWin={setWin}
+        classOfBox={classOfBox}
+        valueOfBox={valueOfBox}
         setResponce={setResponce}
-        defaultClassOfBox={defaultClassOfBox}
         arrayOfBoxes={arrayOfBoxes}
         numberOfBoxes={numberOfBoxes}
         setClassOfBox={setClassOfBox}
-        setWin={setWin}
-        valueOfBox={valueOfBox}
         setArrayOfBoxes={setArrayOfBoxes}
-        classOfBox={classOfBox}
+        defaultClassOfBox={defaultClassOfBox}
+        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong} 
       />
       fullGrid.push(grid)
     }

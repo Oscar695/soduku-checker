@@ -4,18 +4,18 @@ import "./LargeBox.css"
 const LargeBoxSolve = ({
     a,
     b,
-    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
-    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+    setWin,
+    classOfBox,
+    valueOfBox,
     setResponce,
-    defaultClassOfBox,
     arrayOfBoxes,
     numberOfBoxes,
-    setTotalValue,
     setClassOfBox,
-    setWin,
-    valueOfBox,
+    setTotalValue,
     setArrayOfBoxes,
-    classOfBox,
+    defaultClassOfBox,
+    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
     const createLargeBox = () => {
         const largeBox = []
@@ -25,21 +25,21 @@ const LargeBoxSolve = ({
             const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
             if (c !== 0) largeBox.push(rowLineThin)
             const row = <ThreeLongRowSolve
-                numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-                numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
                 a={a}
                 b={b}
                 c={c}
+                setWin={setWin}
+                classOfBox={classOfBox}
+                valueOfBox={valueOfBox}
                 setResponce={setResponce}
-                defaultClassOfBox={defaultClassOfBox}
                 arrayOfBoxes={arrayOfBoxes}
                 numberOfBoxes={numberOfBoxes}
-                setTotalValue={setTotalValue}
                 setClassOfBox={setClassOfBox}
-                setWin={setWin}
-                valueOfBox={valueOfBox}
+                setTotalValue={setTotalValue}
                 setArrayOfBoxes={setArrayOfBoxes}
-                classOfBox={classOfBox}
+                defaultClassOfBox={defaultClassOfBox}
+                numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+                numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
             />
             const rowLineThickShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
             const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>

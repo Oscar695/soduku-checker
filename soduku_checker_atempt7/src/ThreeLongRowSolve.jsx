@@ -5,18 +5,17 @@ const ThreeLongRowSolve = ({
   a,
   b,
   c,
+  setWin,
+  classOfBox,
+  valueOfBox,
   setResponce,
-  defaultClassOfBox,
   arrayOfBoxes,
   numberOfBoxes,
   setClassOfBox,
-  setWin,
-  valueOfBox,
   setArrayOfBoxes,
-  classOfBox,
-  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
+  defaultClassOfBox,
   numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-
+  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   // call in seperate function here
   // const preventError1 = arrayOfBoxes.map(inner => [...inner])
@@ -80,12 +79,12 @@ const ThreeLongRowSolve = ({
         }
       }
       const box = <BoxSolve 
-        classOfBox={classOfBox} 
+        boxClass={boxClass}
+        classOfBox={classOfBox}
+        arrayOfBoxes={arrayOfBoxes}
+        onInputChange={onInputChange} 
         largeBoxNumber={largeBoxNumber} 
         smallBoxNumber={smallBoxNumber} 
-        onInputChange={onInputChange} 
-        boxClass={boxClass}
-        arrayOfBoxes={arrayOfBoxes}
       />
       boxes.push(box)
     }

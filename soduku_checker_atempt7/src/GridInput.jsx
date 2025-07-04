@@ -2,20 +2,18 @@ import ThreeLongSetOfLargeBoxesInput from "./ThreeLongSetOfLargeBoxesInput"
 import "./Grid.css"
 
 const GridInput = ({
-    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
-    setResponce,
-    defaultClassOfBox,
-    arrayOfBoxes,
-    numberOfBoxes,
-    setClassOfBox,
-    setWin,
-    valueOfBox,
-    setArrayOfBoxes,
-    classOfBoxInput,
-    setDeafultClassOfBox,
-    setClassOfBoxInput,
-    defaultClassOfBoxInput,
+  setWin,
+  valueOfBox,
+  setResponce,
+  numberOfBoxes,
+  classOfBoxInput,
+  setArrayOfBoxes,
+  arrayOfBoxesInput,
+  setClassOfBoxInput,
+  setArrayOfBoxesInput,
+  defaultClassOfBoxInput,
+  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   const createGrid = () => {
   const fullGrid = []
@@ -25,21 +23,19 @@ const GridInput = ({
       const rowLineThickLong = <div className="rowLineThickLong" style={thickRowLineLength}></div>
       if (a === 0) fullGrid.push(rowLineThickLong)
       const grid = <ThreeLongSetOfLargeBoxesInput
-        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong} 
-        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
-        setResponce={setResponce}
-        defaultClassOfBox={defaultClassOfBox}
-        arrayOfBoxes={arrayOfBoxes}
-        numberOfBoxes={numberOfBoxes}
-        setClassOfBox={setClassOfBox}
         setWin={setWin}
         valueOfBox={valueOfBox}
-        setArrayOfBoxes={setArrayOfBoxes}
+        setResponce={setResponce}
+        numberOfBoxes={numberOfBoxes}
         classOfBoxInput={classOfBoxInput}
-        setDeafultClassOfBox={setDeafultClassOfBox}
+        setArrayOfBoxes={setArrayOfBoxes}
+        arrayOfBoxesInput={arrayOfBoxesInput}  
         setClassOfBoxInput={setClassOfBoxInput}
+        setArrayOfBoxesInput={setArrayOfBoxesInput}  
         defaultClassOfBoxInput={defaultClassOfBoxInput}
+        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall} 
+        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}   
       />
       fullGrid.push(grid)
     }

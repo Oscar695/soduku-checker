@@ -4,21 +4,18 @@ import "./LargeBox.css"
 const LargeBoxInput = ({
     a,
     b,
-    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
-    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-    setResponce,
-    defaultClassOfBox,
-    arrayOfBoxes,
-    numberOfBoxes,
-    setTotalValue,
-    setClassOfBox,
     setWin,
     valueOfBox,
-    setArrayOfBoxes,
+    setResponce,
+    numberOfBoxes,
     classOfBoxInput,
-    setDeafultClassOfBox,
+    setArrayOfBoxes,
+    arrayOfBoxesInput,
     setClassOfBoxInput,
+    setArrayOfBoxesInput,
     defaultClassOfBoxInput,
+    numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+    numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
     const createLargeBox = () => {
         const largeBox = []
@@ -28,24 +25,21 @@ const LargeBoxInput = ({
             const rowLineThin = <div className="rowLineThin" style={rowLineThinShortLength}></div>
             if (c !== 0) largeBox.push(rowLineThin)
             const row = <ThreeLongRowInput
-                numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-                numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
                 a={a}
                 b={b}
                 c={c}
-                setResponce={setResponce}
-                defaultClassOfBox={defaultClassOfBox}
-                arrayOfBoxes={arrayOfBoxes}
-                numberOfBoxes={numberOfBoxes}
-                setTotalValue={setTotalValue}
-                setClassOfBox={setClassOfBox}
                 setWin={setWin}
                 valueOfBox={valueOfBox}
+                setResponce={setResponce}
+                numberOfBoxes={numberOfBoxes}
                 setArrayOfBoxes={setArrayOfBoxes}
                 classOfBoxInput={classOfBoxInput}
-                setDeafultClassOfBox={setDeafultClassOfBox}
+                arrayOfBoxesInput={arrayOfBoxesInput}
                 setClassOfBoxInput={setClassOfBoxInput}
+                setArrayOfBoxesInput={setArrayOfBoxesInput}
                 defaultClassOfBoxInput={defaultClassOfBoxInput}
+                numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+                numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
             />
             const rowLineThickShortLength = {width: `${(2 * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + ((numberOfLargeBoxesTallAndNoOfSmallBoxesLong - 1) * 0.1)}em`}
             const rowLineThickShort = <div className="rowLineThickShort" style={rowLineThickShortLength}></div>

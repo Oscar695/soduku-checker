@@ -9,6 +9,7 @@ function App() {
   const [numberOfLargeBoxesTallAndNoOfSmallBoxesLong, setNumberOfLargeBoxesTallAndNoOfSmallBoxesLong] = useState(3)
   const [numberOfBoxes, setNumberOfBoxes] = useState(9)
   const [arrayOfBoxes, setArrayOfBoxes] = useState(new Array(9).fill(new Array(9).fill([])))
+  const [arrayOfBoxesInput, setArrayOfBoxesInput] = useState(new Array(9).fill(new Array(9).fill([])))
   const [classOfBox, setClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [defaultClassOfBox, setDeafultClassOfBox] = useState(new Array(9).fill(new Array(9).fill("inputBox")))
   const [responce, setResponce] = useState(false)
@@ -27,6 +28,7 @@ function App() {
     const NoOfboxes = input * numberOfLargeBoxesLongAndNoOfSmallBoxesTall
     setNumberOfBoxes(NoOfboxes)
     setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
+    setArrayOfBoxesInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
     setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
@@ -39,6 +41,7 @@ function App() {
     const NoOfboxes = input * numberOfLargeBoxesTallAndNoOfSmallBoxesLong
     setNumberOfBoxes(NoOfboxes)
     setArrayOfBoxes(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
+    setArrayOfBoxesInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill([])))
     setClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setDeafultClassOfBox(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("inputBox")))
     setClassOfBoxInput(new Array(NoOfboxes).fill(new Array(NoOfboxes).fill("setValue")))
@@ -56,7 +59,7 @@ function App() {
     const updatedClassList = defaultClassOfBox.map(inner => [...inner])
     for (let a = 0; a < numberOfBoxes; a++) {
       for (let b = 0; b < numberOfBoxes; b++) {
-        if ((arrayOfBoxes[a][b] !== "") && (typeof arrayOfBoxes[a][b] === typeof "")) {
+        if ((arrayOfBoxesInput[a][b] !== "") && (typeof arrayOfBoxesInput[a][b] === typeof "")) {
           updatedClassList[a][b] = "setValue"
         }
       }
@@ -75,17 +78,15 @@ function App() {
             numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
             numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
             setResponce={setResponce}
-            defaultClassOfBox={defaultClassOfBox}
-            arrayOfBoxes={arrayOfBoxes}
             numberOfBoxes={numberOfBoxes}
-            setClassOfBox={setClassOfBox}
             setWin={setWin}
             valueOfBox={valueOfBox}
             setArrayOfBoxes={setArrayOfBoxes}
+            setArrayOfBoxesInput={setArrayOfBoxesInput}
             classOfBoxInput={classOfBoxInput}
-            setDeafultClassOfBox={setDeafultClassOfBox}
             setClassOfBoxInput={setClassOfBoxInput}
             defaultClassOfBoxInput={defaultClassOfBoxInput}
+            arrayOfBoxesInput={arrayOfBoxesInput}
           />
         </div>
         <div className="setings">

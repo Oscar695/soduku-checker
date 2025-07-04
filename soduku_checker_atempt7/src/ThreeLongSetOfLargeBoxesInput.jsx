@@ -2,21 +2,19 @@ import LargeBoxInput from "./LargeBoxInput"
 import "./ThreeLongSetOfLargeBoxes.css"
 
 const ThreeLongSetOfLargeBoxesInput = ({
-  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
-  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
   a,
-  setResponce,
-  defaultClassOfBox,
-  arrayOfBoxes,
-  numberOfBoxes,
-  setClassOfBox,
   setWin,
   valueOfBox,
-  setArrayOfBoxes,
+  setResponce,
+  numberOfBoxes,
   classOfBoxInput,
-  setDeafultClassOfBox,
+  setArrayOfBoxes,
+  arrayOfBoxesInput,
   setClassOfBoxInput,
+  setArrayOfBoxesInput,
   defaultClassOfBoxInput,
+  numberOfLargeBoxesLongAndNoOfSmallBoxesTall,
+  numberOfLargeBoxesTallAndNoOfSmallBoxesLong,
 }) => {
   const createThreeLongSetOfLargeBoxes = () => {
     const threeLongSetOfLargeBoxes = []
@@ -25,22 +23,20 @@ const ThreeLongSetOfLargeBoxesInput = ({
       const thickCollemHight = {height: `${(2 * numberOfLargeBoxesLongAndNoOfSmallBoxesTall) + ((numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1) * 0.1)}em`}
       const collemLineThickLong = <div className="collemLineThickLong" style={thickCollemHight}></div>
       const rowOfLargeBoxes = <LargeBoxInput
-        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
         a={a}
         b={b}
-        setResponce={setResponce}
-        defaultClassOfBox={defaultClassOfBox}
-        arrayOfBoxes={arrayOfBoxes}
-        numberOfBoxes={numberOfBoxes}
-        setClassOfBox={setClassOfBox}
         setWin={setWin}
         valueOfBox={valueOfBox}
-        setArrayOfBoxes={setArrayOfBoxes}
+        setResponce={setResponce}
+        numberOfBoxes={numberOfBoxes}
         classOfBoxInput={classOfBoxInput}
-        setDeafultClassOfBox={setDeafultClassOfBox}
+        setArrayOfBoxes={setArrayOfBoxes}
+        arrayOfBoxesInput={arrayOfBoxesInput}
         setClassOfBoxInput={setClassOfBoxInput}
+        setArrayOfBoxesInput={setArrayOfBoxesInput}
         defaultClassOfBoxInput={defaultClassOfBoxInput}
+        numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+        numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
       />
       threeLongSetOfLargeBoxes.push(rowOfLargeBoxes)
       if (b === (numberOfLargeBoxesLongAndNoOfSmallBoxesTall - 1)) threeLongSetOfLargeBoxes.push(collemLineThickLong)
