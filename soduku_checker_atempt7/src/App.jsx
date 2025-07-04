@@ -75,24 +75,26 @@ function App() {
         </div>
         <div className="lineUp">
           <GridInput
-            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
-            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
-            setResponce={setResponce}
-            numberOfBoxes={numberOfBoxes}
             setWin={setWin}
             valueOfBox={valueOfBox}
-            setArrayOfBoxes={setArrayOfBoxes}
-            setArrayOfBoxesInput={setArrayOfBoxesInput}
+            setResponce={setResponce}
+            numberOfBoxes={numberOfBoxes}
             classOfBoxInput={classOfBoxInput}
-            setClassOfBoxInput={setClassOfBoxInput}
-            defaultClassOfBoxInput={defaultClassOfBoxInput}
+            setArrayOfBoxes={setArrayOfBoxes}
             arrayOfBoxesInput={arrayOfBoxesInput}
+            setClassOfBoxInput={setClassOfBoxInput}
+            setArrayOfBoxesInput={setArrayOfBoxesInput}
+            defaultClassOfBoxInput={defaultClassOfBoxInput}
+            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
           />
         </div>
         <div className="setings">
           <Setings
-            largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
             largeBoxHightSmallBoxWidth={largeBoxHightSmallBoxWidth}
+            largeBoxWidthSmallBoxHight={largeBoxWidthSmallBoxHight}
+            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
           />
         </div>   
       </div>
@@ -106,19 +108,19 @@ function App() {
           {responce ? "only values 1 to" + " " + numberOfBoxes : null}
           {win ? "you win yay" : null}
         </div>
-        <div className="lineUp">
+        <div>
           <GridSolve
-            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
-            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+            setWin={setWin}
+            classOfBox={classOfBox}
+            valueOfBox={valueOfBox}
             setResponce={setResponce}
-            defaultClassOfBox={defaultClassOfBox}
             arrayOfBoxes={arrayOfBoxes}
             numberOfBoxes={numberOfBoxes}
             setClassOfBox={setClassOfBox}
-            setWin={setWin}
-            valueOfBox={valueOfBox}
             setArrayOfBoxes={setArrayOfBoxes}
-            classOfBox={classOfBox}
+            defaultClassOfBox={defaultClassOfBox}
+            numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
+            numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
           />
         </div>
       </div>
