@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import GridInput from './GridInput'
 import GridSolve from './GridSolve'
-import Setings from './Setings'
+import SetingsInput from './SetingsInput'
+import SetingsSolve from './SetingsSolve'
 
 function App() {
   const [numberOfLargeBoxesLongAndNoOfSmallBoxesTall, setNumberOfLargeBoxesLongAndNoOfSmallBoxesTall] = useState(3)
@@ -22,7 +23,31 @@ function App() {
   const [checked2By2, setChecked2By2] = useState(false)
   const [checked3By2, setChecked3By2] = useState(false)
   const [checked3By3, setChecked3By3] = useState(true)
+  const [largeNumbersButton, setLargeNumbersButton] = useState("setingsSolveButton")
+  const [smallNumbersButton, setsmallNumbersButton] = useState("setingsSolveButton")
 
+  const smallNumbers = () => {
+    <div>
+      <div className="lineUp">
+        <div>1</div>
+        <div>2</div>
+      </div>
+      <div className="lineUp">
+        <div>3</div>
+        <div>4</div>
+      </div>
+    </div>
+  }
+
+  const largeNumbersButtonPresed = () => {
+    setLargeNumbersButton("setingsSolveButtonHighlighted")
+    setsmallNumbersButton("setingsSolveButton")
+  }
+
+  const smallNumbersButtonPresed = () => {
+    setLargeNumbersButton("setingsSolveButton")
+    setsmallNumbersButton("setingsSolveButtonHighlighted")
+  }
 
   const preMadeGrid2By2 = () => {
     setChecked2By2(true)
@@ -152,7 +177,7 @@ function App() {
           />
         </div>
         <div className="setings">
-          <Setings
+          <SetingsInput
             checked2By2={checked2By2}
             checked3By2={checked3By2}
             checked3By3={checked3By3}
@@ -171,12 +196,12 @@ function App() {
 
   const theSolvePage = () => {
     return (
-      <div>
+      <div className="lineUp">
         <div>
           {responce ? "only values 1 to" + " " + numberOfBoxes : null}
           {win ? "you win yay" : null}
         </div>
-        <div>
+        <div className="lineUp">
           <GridSolve
             setWin={setWin}
             classOfBox={classOfBox}
@@ -189,6 +214,15 @@ function App() {
             defaultClassOfBox={defaultClassOfBox}
             numberOfLargeBoxesLongAndNoOfSmallBoxesTall={numberOfLargeBoxesLongAndNoOfSmallBoxesTall}
             numberOfLargeBoxesTallAndNoOfSmallBoxesLong={numberOfLargeBoxesTallAndNoOfSmallBoxesLong}
+          />
+        </div>
+        <div className="setings">
+          <SetingsSolve
+            smallNumbers={smallNumbers}
+            largeNumbersButton={largeNumbersButton}
+            smallNumbersButton={smallNumbersButton}
+            largeNumbersButtonPresed={largeNumbersButtonPresed}
+            smallNumbersButtonPresed={smallNumbersButtonPresed}
           />
         </div>
       </div>

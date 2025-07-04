@@ -1,6 +1,6 @@
 import './Settings.css'
 
-const Setings = ({
+const SetingsInput = ({
   checked2By2,
   checked3By2,
   checked3By3,
@@ -58,7 +58,7 @@ const Setings = ({
   return <div className="setings">{createSetings()}</div>
 }
 
-export default Setings
+export default SetingsInput
 
 
 {/* <div>
