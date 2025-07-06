@@ -1,0 +1,67 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inputButton {
+  border-radius: 32px;
+  align-content: center;
+  font-size: large;
+}
+
+.solveButton {
+  border-radius: 32px;
+  align-content: center;
+  font-size: large;
+}
+
+.lineUp {
+  display: flex;
+}
+
+.lineUpButtons {
+  display: flex;
+  padding-bottom: 16px;
+  align-self: center;
+  align-content: center;
+}
+
+.seperation {
+  padding: 4px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  appearance: none;
+  -webkit-appearance: none; /* Chrome/Safari */
+  -moz-appearance: textfield; /* Firefox */
+  caret-color: transparent;
+  font-weight: bold;
+  border: 5px solid transparent;
+
+  outline: none;
+}
+
+input[type="number"]:focus {
+  border: none;
+  border: 5px solid lightblue;
+}
+
+.setValue {
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    display: unset;
+    border: 0;
+    padding: 0;
+    font-size: 25px;
+    color: black;
+    font-weight: bold; 
+}
