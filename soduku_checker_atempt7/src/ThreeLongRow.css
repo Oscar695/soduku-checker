@@ -14,7 +14,7 @@
     background-color: rgb(239, 71, 71);
     color: blue;
     padding: 0;
-    font-size: medium;
+    font-size: 25px;
 }
 
 .inputBox {
@@ -24,7 +24,7 @@
     display: unset;
     padding: 0;
     color: blue;
-    font-size: medium;
+    font-size: 25px;
 } 
 
 .collemLineThin {

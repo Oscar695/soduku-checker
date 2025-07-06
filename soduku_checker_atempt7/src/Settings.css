@@ -31,22 +31,34 @@
   display: flex;
 }
 
-.buttonLargeNumbers{
+.buttonLargeNumbers {
   text-align: center;
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
   border: 4px solid black;
   background-color: lightblue;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: x-large;
   margin: 2.4px;
   font-weight: bold;
 }
 
-.buttonSmallNumbers{
+.buttonSmallNumbers {
   text-align: center;
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
+  border: 4px solid black;
+  background-color: lightblue;
+  border-radius: 8px;
+  font-size: 80%;
+  margin: 2.4px;
+  font-weight: bold;
+}
+
+.buttonSmallCenterNumbers {
+  text-align: center;
+  width: 45px;
+  height: 45px;
   border: 4px solid black;
   background-color: lightblue;
   border-radius: 8px;
@@ -57,11 +69,11 @@
 
 .setingsSolveButtonSmallNumbers {
   text-align: center;
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
   border: 4px solid black;
   background-color: lightblue;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 80%;
   margin: 2.4px;
   font-weight: bold;
@@ -69,24 +81,37 @@
 
 .setingsSolveButtonLargeNumbers {
   text-align: center;
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
   display: unset;
   border: 4px solid black;
   background-color: lightblue;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: x-large;
   margin: 2.4px;
   font-weight: bold;
 }
 
+.setingsSolveButtonSmallCenterNumbers {
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  display: unset;
+  border: 4px solid black;
+  background-color: lightblue;
+  border-radius: 8px;
+  font-size: 80%;
+  margin: 2.4px;
+  font-weight: bold;
+}
+
 .setingsSolveButtonSmallNumbersHighlighted {
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
   border: 4px solid black;
   background-color: lightblue;
   box-shadow: 0px 0px 16px 3.2px black;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 80%;
   margin: 2.4px;
   font-weight: bold;
@@ -94,14 +119,33 @@
 
 .setingsSolveButtonLargeNumbersHighlighted {
   text-align: center;
-  width: 42.6px;
-  height: 42.6px;
+  width: 45px;
+  height: 45px;
   display: unset;
   border: 4px solid black;
   background-color: lightblue;
   box-shadow: 0px 0px 8px 1.6px black;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: x-large;
   margin: 2.4px;
   font-weight: bold;
+}
+
+.setingsSolveButtonSmallCenterNumbersHighlighted {
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  display: unset;
+  border: 4px solid black;
+  background-color: lightblue;
+  box-shadow: 0px 0px 8px 1.6px black;
+  border-radius: 8px;
+  font-size: 80%;
+  margin: 2.4px;
+  font-weight: bold;
+}
+
+.cornerNumberSize {
+  width: 12px;
+  height: 12px;
 }

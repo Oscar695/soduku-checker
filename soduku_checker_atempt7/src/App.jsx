@@ -25,21 +25,38 @@ function App() {
   const [checked3By3, setChecked3By3] = useState(true)
   const [largeNumbersButton, setLargeNumbersButton] = useState("setingsSolveButtonLargeNumbersHighlighted")
   const [smallNumbersButton, setsmallNumbersButton] = useState("setingsSolveButtonSmallNumbers")
+  const [smallCenterNumbersButton, setSmallCenterNumbersButton] = useState("setingsSolveButtonSmallCenterNumbers")
   const [largeNumbers, setLargeNumbers] = useState(true)
   const [smallNumbers, setSmallNumbers] = useState(false)
+  const [smallCenterNumbers, setSmallCenterNumbers] = useState(false)
+
+
+  const smallCenterNumbersButtonPresed = () => {
+    setLargeNumbersButton("setingsSolveButtonLargeNumbers")
+    setsmallNumbersButton("setingsSolveButtonSmallNumbers")
+    setSmallCenterNumbersButton("setingsSolveButtonSmallCenterNumbersHighlighted")
+    setLargeNumbers(false)
+    setSmallNumbers(false)
+    setSmallCenterNumbers(true)
+  }
+
 
   const largeNumbersButtonPresed = () => {
     setLargeNumbersButton("setingsSolveButtonLargeNumbersHighlighted")
     setsmallNumbersButton("setingsSolveButtonSmallNumbers")
+    setSmallCenterNumbersButton("setingsSolveButtonSmallCenterNumbers")
     setLargeNumbers(true)
     setSmallNumbers(false)
+    setSmallCenterNumbers(false)
   }
 
   const smallNumbersButtonPresed = () => {
     setLargeNumbersButton("setingsSolveButtonLargeNumbers")
     setsmallNumbersButton("setingsSolveButtonSmallNumbersHighlighted")
+    setSmallCenterNumbersButton("setingsSolveButtonSmallCenterNumbers")
     setLargeNumbers(false)
     setSmallNumbers(true)
+    setSmallCenterNumbers(false)
   }
 
   const preMadeGrid2By2 = () => {
@@ -214,9 +231,12 @@ function App() {
             smallNumbers={smallNumbers}
             largeNumbers={largeNumbers}
             largeNumbersButton={largeNumbersButton}
+            smallCenterNumbers={smallCenterNumbers}
             smallNumbersButton={smallNumbersButton}
             largeNumbersButtonPresed={largeNumbersButtonPresed}
+            smallCenterNumbersButton={smallCenterNumbersButton}
             smallNumbersButtonPresed={smallNumbersButtonPresed}
+            smallCenterNumbersButtonPresed={smallCenterNumbersButtonPresed}
           />
         </div>
       </div>
