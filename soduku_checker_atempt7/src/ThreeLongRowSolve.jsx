@@ -33,6 +33,7 @@ const ThreeLongRowSolve = ({
       if (d !== 0) boxes.push(collemLineThin)
       let smallBoxNumber = ((c * numberOfLargeBoxesTallAndNoOfSmallBoxesLong) + d)
       let largeBoxNumber = ((a * numberOfLargeBoxesLongAndNoOfSmallBoxesTall) + b)
+      
       const onInputChange = (event) => {
         let counter1 = 0
         const inputNumber = event.target.value
