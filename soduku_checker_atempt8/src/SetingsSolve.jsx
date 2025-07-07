@@ -1,4 +1,5 @@
 import './Settings.css'
+import EdgeNumbersGridButton from "./EdgeNumbersGridButton"
 
 const SetingsSolve = ({
     largeNumbers,
@@ -12,17 +13,7 @@ const SetingsSolve = ({
     smallCenterNumbersButtonPresed,
 }) => {
 
-    const hello2 = (a, string) => {
-        const threeLongSolveBoxes = []
-        for (let b = 0; b < 3; b++) {
-            let input = <div> <div className="lineUp"><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 1) ? 1 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 2) ? 2 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 3) ? 3 : " "}</div></div> <div className="lineUp"><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 4) ? 4 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 5) ? 5 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 6) ? 6 : " "}</div></div> <div className="lineUp"><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 7) ? 7 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 8) ? 8 : " "}</div><div className="cornerNumberSize">{((((3 * a) + b) + 1) === 9) ? 9 : " "}</div></div></div>
-            const box = <button className={string}>{input}</button>
-            threeLongSolveBoxes.push(box)
-        }
-        return threeLongSolveBoxes
-    }
-
-    const hello = (a, string) => {
+    const createGenericSettingsButton = (a, string) => {
         const threeLongSolveBoxes = []
         for (let b = 0; b < 3; b++) {
             const input = (((3 * a) + b) + 1).toString()
@@ -40,8 +31,13 @@ const SetingsSolve = ({
         const fullLargeSolveBoxes = []
         for (let a = 0; a < 3; a++) {
             let line = <div></div>
-            if (string !== "buttonSmallNumbers") line = <div className="lineUp">{hello(a, string)}</div>
-            else line = <div className="lineUp">{hello2(a, string)}</div>
+            if (string !== "buttonSmallNumbers") line = <div className="lineUp">{createGenericSettingsButton(a, string)}</div>
+            else line = <div className="lineUp">
+                <EdgeNumbersGridButton 
+                    a={a}
+                    string={string}
+                />
+            </div>
             fullLargeSolveBoxes.push(line)
         }
         return fullLargeSolveBoxes
@@ -67,7 +63,7 @@ const SetingsSolve = ({
             </div>
         )
     }
-
+    const hello = <div><div>6</div><div>hello</div></div>
     const createSetings = () => {
         const setings = (
             <div className="lineUp">

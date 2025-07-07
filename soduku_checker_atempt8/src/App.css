@@ -65,3 +65,8 @@ input[type="number"]:focus {
     color: black;
     font-weight: bold; 
 }
+
+.shiftUp {
+  margin-top: -42px;
+  margin-left: 5px;
+}

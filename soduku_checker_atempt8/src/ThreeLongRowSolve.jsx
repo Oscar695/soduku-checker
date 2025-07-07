@@ -43,11 +43,11 @@ const ThreeLongRowSolve = ({
       const onInputChange = (event) => {
         let counter1 = 0
         const inputNumber = event.target.value
-        if (((inputNumber < 1) || (inputNumber > numberOfBoxes)) && (inputNumber !== "")) setResponce(true)
-        else setResponce(false)
         const updatedClassList1 = defaultClassOfBox.map(inner => [...inner])
         for (let g = 0; g < numberOfBoxes; g++) {
           for (let h = 0; h < numberOfBoxes; h++) {
+            
+
 
             if (smallNumbers === true) {
               const inputNumber = event.target.value
@@ -68,6 +68,8 @@ const ThreeLongRowSolve = ({
             }
 
             if (largeNumbers === true) {
+              if (((inputNumber < 1) || (inputNumber > numberOfBoxes)) && (inputNumber !== "")) setResponce(true)
+              else setResponce(false)
               const updatedValuesList1 = arrayOfBoxes.map(inner => [...inner])
               updatedValuesList1[largeBoxNumber][smallBoxNumber] = inputNumber
               const preventError1 = arrayOfBoxes.map(inner => [...inner])
@@ -107,11 +109,16 @@ const ThreeLongRowSolve = ({
       }
       const box = <BoxSolve 
         boxClass={boxClass}
-        classOfBox={classOfBox}
+        classOfBox={classOfBox}              
         arrayOfBoxes={arrayOfBoxes}
+        largeNumbers={largeNumbers}
+        smallNumbers={smallNumbers}
         onInputChange={onInputChange} 
         largeBoxNumber={largeBoxNumber} 
         smallBoxNumber={smallBoxNumber} 
+        smallCenterNumbers={smallCenterNumbers}
+        arrayOfBoxesSmallEdge={arrayOfBoxesSmallEdge}
+        arrayOfBoxesSmallCenter={arrayOfBoxesSmallCenter}
       />
       boxes.push(box)
     }
